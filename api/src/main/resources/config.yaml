@@ -21,7 +21,7 @@ kumuluzee:
 #              "bearer-only": true,
 #              "auth-server-url": "https://localhost:8080/auth",
 #              "ssl-required": "external",
-#              "resource": "marketplace-catalogue"}'
+#              "resource": "marketplace-loader-agent"}'
 
   health:
     logs:
@@ -32,16 +32,9 @@ kumuluzee:
     checks:
       disk-space-health-check:
         threshold: 10000
-#      data-source-health-check:
-#        - jndi-name: jdbc/MarketplaceCatalogDS
-#          type: liveness
   metrics:
     servlet:
       enabled: true
     web-instrumentation:
       - name: metricsEndpoint
         url-pattern: /metrics/*
-#      - name: adsEndpoint
-#        url-pattern: /v1/ads/*
-#      - name: adsEndpoint
-#        url-pattern: /v1/sellers/*
