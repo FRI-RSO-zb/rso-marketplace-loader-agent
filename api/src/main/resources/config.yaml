@@ -1,0 +1,47 @@
+kumuluzee:
+  name: loaderAgent
+  env:
+    name: dev
+  version: 1.0.1 # ${git.build.version}
+  server:
+    #base-url: http://localhost:8001
+    http:
+      port: 8003
+  dev:
+    scan-libraries:
+      - marketplace-common
+  openapi:
+    enabled: true
+    ui:
+      enabled: true
+#  security:
+#    keycloak:
+#      enabled: false
+#      json: '{"realm": "marketplace-test",
+#              "bearer-only": true,
+#              "auth-server-url": "https://localhost:8080/auth",
+#              "ssl-required": "external",
+#              "resource": "marketplace-catalogue"}'
+
+  health:
+    logs:
+      enabled: true
+      type: readiness
+      level: FINE
+      period-s: 60
+    checks:
+      disk-space-health-check:
+        threshold: 10000
+#      data-source-health-check:
+#        - jndi-name: jdbc/MarketplaceCatalogDS
+#          type: liveness
+  metrics:
+    servlet:
+      enabled: true
+    web-instrumentation:
+      - name: metricsEndpoint
+        url-pattern: /metrics/*
+#      - name: adsEndpoint
+#        url-pattern: /v1/ads/*
+#      - name: adsEndpoint
+#        url-pattern: /v1/sellers/*

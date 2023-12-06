@@ -1,0 +1,2 @@
+*/**/test/resources/*.html linguist-vendored
+*/**/test/resources/*.json linguist-vendored

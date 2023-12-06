@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <packaging>pom</packaging>
+
+  <!-- Build information -->
+  <groupId>net.bobnar.marketplace</groupId>
+  <artifactId>marketplace-loader-agent</artifactId>
+  <version>${revision}</version>
+
+  <properties>
+    <!-- Build revision -->
+    <version>1.0.1</version>
+    <!--suppress UnresolvedMavenProperty (it gets resolved upon packaging) -->
+<!--    <git-version-descriptor>-${git.branch}-${git.commit.id.describe-short}</git-version-descriptor>-->
+<!--    <git-desc/>-->
+<!--    <revision>${version}${git-version-descriptor}</revision>-->
+<!--    <revision>${version}${git.branch}</revision>-->
+    <revision>${version}</revision>
+
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <!-- Dependencies versions -->
+<!--    <marketplace-common.version>0.0.1-SNAPSHOT</marketplace-common.version>-->
+    <kumuluzee.version>4.1.0</kumuluzee.version>
+    <kumuluzee-rest.version>2.0.1</kumuluzee-rest.version>
+<!--    <kumuluzee-rest.version>1.5.1</kumuluzee-rest.version>-->
+    <kumuluzee-openapi-mp.version>1.4.0</kumuluzee-openapi-mp.version>
+    <kumuluzee-config-mp.version>2.0.0</kumuluzee-config-mp.version>
+    <kumuluzee-swagger.version>1.2.1</kumuluzee-swagger.version>
+    <postgresql.version>42.5.1</postgresql.version>
+    <kumuluzee-health.version>2.4.4</kumuluzee-health.version>
+    <kumuluzee-metrics.version>3.0.0</kumuluzee-metrics.version>
+    <kumuluzee-logs.version>1.4.6</kumuluzee-logs.version>
+    <kumuluzee-cors.version>2.0.0</kumuluzee-cors.version>
+    <kumuluzee-security.version>1.2.0</kumuluzee-security.version>
+    <keycloak.version>5.0.0</keycloak.version>
+    <kumuluzee-cdi-weld.version>4.1.0</kumuluzee-cdi-weld.version>
+  </properties>
+
+
+  <modules>
+    <module>marketplace-common</module>
+    <module>api</module>
+<!--    <module>data</module>-->
+    <module>services</module>
+  </modules>
+
+
+  <!-- Solution information -->
+  <name>Marketplace Loader Agent</name>
+  <description>Marketplace loader agent microservice.</description>
+  <url>https://loader-agent.marketplace.bobnar.net/v1</url>
+  <scm>
+    <connection>scm:git:git@github.com:FRI-RSO-zb/rso-marketplace-loader-agent</connection>
+    <developerConnection>scm:git:git@github.com:FRI-RSO-zb/rso-marketplace-loader-agent</developerConnection>
+    <url>git:git@github.com:FRI-RSO-zb/rso-marketplace-loader-agent</url>
+  </scm>
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+    </license>
+  </licenses>
+
+
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.kumuluz.ee</groupId>
+        <artifactId>kumuluzee-bom</artifactId>
+        <version>${kumuluzee.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>com.kumuluz.ee.rest</groupId>
+        <artifactId>kumuluzee-rest-core</artifactId>
+        <version>${kumuluzee-rest.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.kumuluz.ee.openapi</groupId>
+        <artifactId>kumuluzee-openapi-mp</artifactId>
+        <version>${kumuluzee-openapi-mp.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.kumuluz.ee.openapi</groupId>
+        <artifactId>kumuluzee-openapi-mp-ui</artifactId>
+        <version>${kumuluzee-openapi-mp.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.kumuluz.ee.config</groupId>
+        <artifactId>kumuluzee-config-mp</artifactId>
+        <version>${kumuluzee-config-mp.version}</version>
+      </dependency>
+
+
+      <dependency>
+        <groupId>com.kumuluz.ee.health</groupId>
+        <artifactId>kumuluzee-health</artifactId>
+        <version>${kumuluzee-health.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.kumuluz.ee.metrics</groupId>
+        <artifactId>kumuluzee-metrics-core</artifactId>
+        <version>${kumuluzee-metrics.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.kumuluz.ee.cors</groupId>
+        <artifactId>kumuluzee-cors</artifactId>
+        <version>${kumuluzee-cors.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.kumuluz.ee</groupId>
+        <artifactId>kumuluzee-cdi-weld</artifactId>
+        <version>${kumuluzee-cdi-weld.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.kumuluz.ee.security</groupId>
+        <artifactId>kumuluzee-security-keycloak</artifactId>
+        <version>${kumuluzee-security.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.keycloak</groupId>
+        <artifactId>keycloak-jetty94-adapter</artifactId>
+        <version>${keycloak.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.postgresql</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>${postgresql.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.jsoup</groupId>
+        <artifactId>jsoup</artifactId>
+        <version>1.15.3</version>
+      </dependency>
+
+      <dependency>
+        <groupId>jakarta.ws.rs</groupId>
+        <artifactId>jakarta.ws.rs-api</artifactId>
+        <version>2.1.6</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>5.10.0</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.json</groupId>
+        <artifactId>json</artifactId>
+        <version>20230227</version>
+      </dependency>
+
+      <dependency>
+        <artifactId>kumuluzee-logs-log4j2</artifactId>
+        <groupId>com.kumuluz.ee.logs</groupId>
+        <version>${kumuluzee-logs.version}</version>
+      </dependency>
+
+
+<!--      <dependency>-->
+<!--        <groupId>net.bobnar.marketplace</groupId>-->
+<!--        <artifactId>catalogue</artifactId>-->
+<!--        <version>${project.version}</version>-->
+<!--      </dependency>-->
+
+<!--      <dependency>-->
+<!--        <groupId>net.bobnar.marketplace</groupId>-->
+<!--        <artifactId>loader-agent</artifactId>-->
+<!--        <version>${project.version}</version>-->
+<!--      </dependency>-->
+
+    <dependency>
+      <groupId>net.bobnar.marketplace</groupId>
+      <artifactId>marketplace-common</artifactId>
+<!--      <version>${marketplace-common.version}</version>-->
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>net.bobnar.marketplace</groupId>
+      <artifactId>marketplace-loader-agent-data</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>net.bobnar.marketplace</groupId>
+      <artifactId>marketplace-loader-agent-services</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>net.bobnar.marketplace</groupId>
+      <artifactId>marketplace-loader-agent-api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+
+
+
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <plugins>
+      <!-- Plugin that extracts git commits to be used for version tagging the built archives-->
+<!--      <plugin>-->
+<!--        <groupId>io.github.git-commit-id</groupId>-->
+<!--        <artifactId>git-commit-id-maven-plugin</artifactId>-->
+<!--        <version>5.0.0</version>-->
+<!--        <executions>-->
+<!--          <execution>-->
+<!--            <id>get-the-git-infos</id>-->
+<!--            <goals>-->
+<!--              <goal>revision</goal>-->
+<!--            </goals>-->
+<!--            <phase>initialize</phase>-->
+<!--          </execution>-->
+<!--        </executions>-->
+<!--&lt;!&ndash;        <configuration>&ndash;&gt;-->
+<!--&lt;!&ndash;          <generateGitPropertiesFile>true</generateGitPropertiesFile>&ndash;&gt;-->
+<!--&lt;!&ndash;          <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>&ndash;&gt;-->
+<!--&lt;!&ndash;          <includeOnlyProperties>&ndash;&gt;-->
+<!--&lt;!&ndash;            <includeOnlyProperty>^git.build.(time|version)$</includeOnlyProperty>&ndash;&gt;-->
+<!--&lt;!&ndash;            <includeOnlyProperty>^git.commit.id.(abbrev|full)$</includeOnlyProperty>&ndash;&gt;-->
+<!--&lt;!&ndash;          </includeOnlyProperties>&ndash;&gt;-->
+<!--&lt;!&ndash;          <commitIdGenerationMode>full</commitIdGenerationMode>&ndash;&gt;-->
+<!--&lt;!&ndash;        </configuration>&ndash;&gt;-->
+<!--      </plugin>-->
+
+      <plugin>
+        <!-- Flatten plugin is required for ${revision} to work -->
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>flatten-maven-plugin</artifactId>
+        <version>1.1.0</version>
+        <configuration>
+          <updatePomFile>true</updatePomFile>
+          <flattenMode>resolveCiFriendliesOnly</flattenMode>
+        </configuration>
+        <executions>
+          <execution>
+            <id>flatten</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>flatten</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>flatten.clean</id>
+            <phase>clean</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
