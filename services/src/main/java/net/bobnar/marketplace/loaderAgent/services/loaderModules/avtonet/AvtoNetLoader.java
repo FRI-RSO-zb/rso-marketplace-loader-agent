@@ -1,5 +1,6 @@
 package net.bobnar.marketplace.loaderAgent.services.loaderModules.avtonet;
 
+import net.bobnar.marketplace.common.dtos.loaderAgent.v1.loaders.LoadingResult;
 import net.bobnar.marketplace.loaderAgent.services.loader.LoaderBase;
 import org.jsoup.nodes.Document;
 
@@ -12,12 +13,12 @@ public class AvtoNetLoader extends LoaderBase<Object> {
         super("https://www.avto.net/");
     }
 
-    public Object loadAvtonetTop100List() throws IOException {
+    public LoadingResult loadAvtonetTop100List() throws IOException {
         Document result = this.loadDocumentFromUrl("Ads/results_100.asp?oglasrubrika=1&prodajalec=2");
 
         // TODO:
         System.out.println(result.html());
 
-        return result.html();
+        return new LoadingResult(true, result.html());
     }
 }
