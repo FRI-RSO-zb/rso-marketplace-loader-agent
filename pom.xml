@@ -25,7 +25,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- Dependencies versions -->
-<!--    <marketplace-common.version>0.0.1-SNAPSHOT</marketplace-common.version>-->
+    <marketplace-common.version>1.0.2</marketplace-common.version>
+
     <kumuluzee.version>4.1.0</kumuluzee.version>
     <kumuluzee-rest.version>2.0.1</kumuluzee-rest.version>
 <!--    <kumuluzee-rest.version>1.5.1</kumuluzee-rest.version>-->
@@ -44,9 +45,8 @@
 
 
   <modules>
-    <module>marketplace-common</module>
+    <module>common</module>
     <module>api</module>
-<!--    <module>data</module>-->
     <module>services</module>
   </modules>
 
@@ -166,7 +166,7 @@
       <dependency>
         <groupId>org.json</groupId>
         <artifactId>json</artifactId>
-        <version>20230227</version>
+        <version>20231013</version>
       </dependency>
 
       <dependency>
@@ -189,10 +189,12 @@
 <!--      </dependency>-->
 
     <dependency>
-      <groupId>net.bobnar.marketplace</groupId>
+      <groupId>net.bobnar.marketplace.common</groupId>
       <artifactId>marketplace-common</artifactId>
-<!--      <version>${marketplace-common.version}</version>-->
-      <version>${project.version}</version>
+      <version>${marketplace-common.version}</version>
+<!--      <type>pom</type>-->
+<!--      <scope>provided</scope>-->
+<!--      <version>${project.version}</version>-->
     </dependency>
 
     <dependency>

@@ -1,5 +1,6 @@
 package net.bobnar.marketplace.loaderAgent.api.v1.controllers;
 
+import com.kumuluz.ee.cors.annotations.CrossOrigin;
 import com.kumuluz.ee.logs.cdi.Log;
 import net.bobnar.marketplace.common.dtos.loaderAgent.v1.processors.ProcessingResult;
 import net.bobnar.marketplace.loaderAgent.services.loaderModules.avtonet.AvtoNetProcessor;
@@ -34,6 +35,7 @@ import java.util.List;
 @Tag(name="Parser", description = "Endpoints for triggering parsing of obtained raw data")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@CrossOrigin(supportedMethods =  "GET, POST, HEAD, OPTIONS, PUT, DELETE", allowOrigin = "*")
 public class ParserController {
     private static final String AVTONET = "avtonet";
     private static final String BOLHA = "bolha";

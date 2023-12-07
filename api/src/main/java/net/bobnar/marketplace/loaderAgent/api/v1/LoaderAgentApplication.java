@@ -1,5 +1,6 @@
 package net.bobnar.marketplace.loaderAgent.api.v1;
 
+import com.kumuluz.ee.cors.annotations.CrossOrigin;
 import org.eclipse.microprofile.openapi.annotations.OpenAPIDefinition;
 import org.eclipse.microprofile.openapi.annotations.enums.SecuritySchemeType;
 import org.eclipse.microprofile.openapi.annotations.info.Contact;

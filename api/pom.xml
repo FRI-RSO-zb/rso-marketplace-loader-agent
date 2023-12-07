@@ -89,23 +89,21 @@
     </dependency>
 
     <dependency>
-        <groupId>net.bobnar.marketplace</groupId>
+        <groupId>net.bobnar.marketplace.common</groupId>
         <artifactId>marketplace-common</artifactId>
-<!--        <scope>compile</scope>-->
     </dependency>
     <dependency>
       <groupId>net.bobnar.marketplace</groupId>
       <artifactId>marketplace-loader-agent-services</artifactId>
-<!--      <scope>compile</scope>-->
     </dependency>
 
 
 
     <!--    CORS does not work properly in this setup!   -->
-<!--    <dependency>-->
-<!--      <groupId>com.kumuluz.ee.cors</groupId>-->
-<!--      <artifactId>kumuluzee-cors</artifactId>-->
-<!--    </dependency>-->
+    <dependency>
+      <groupId>com.kumuluz.ee.cors</groupId>
+      <artifactId>kumuluzee-cors</artifactId>
+    </dependency>
 
 
 <!--    <dependency>-->
