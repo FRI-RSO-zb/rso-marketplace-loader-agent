@@ -10,10 +10,14 @@ kumuluzee:
   dev:
     scan-libraries:
       - marketplace-common
-  openapi:
+  openapi-mp:
     enabled: true
     ui:
       enabled: true
+#  openapi-mp:
+    server-auto-config:
+      enabled: false
+      original-uri-check: false
 #  security:
 #    keycloak:
 #      enabled: false

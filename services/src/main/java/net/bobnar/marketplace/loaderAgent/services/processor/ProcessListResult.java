@@ -2,7 +2,6 @@ package net.bobnar.marketplace.loaderAgent.services.processor;
 
 import net.bobnar.marketplace.common.dtos.loaderAgent.v1.processors.ProcessingResult;
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;

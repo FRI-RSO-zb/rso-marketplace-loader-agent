@@ -12,7 +12,7 @@
 
   <properties>
     <!-- Build revision -->
-    <version>1.0.1</version>
+    <version>1.1.0</version>
     <!--suppress UnresolvedMavenProperty (it gets resolved upon packaging) -->
 <!--    <git-version-descriptor>-${git.branch}-${git.commit.id.describe-short}</git-version-descriptor>-->
 <!--    <git-desc/>-->
@@ -25,7 +25,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- Dependencies versions -->
-    <marketplace-common.version>1.0.2</marketplace-common.version>
+    <marketplace-common.version>1.1.0</marketplace-common.version>
 
     <kumuluzee.version>4.1.0</kumuluzee.version>
     <kumuluzee-rest.version>2.0.1</kumuluzee-rest.version>
