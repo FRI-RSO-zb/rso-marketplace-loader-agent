@@ -9,5 +9,5 @@ public interface ILoader<T> {
 
     String getUrl(String path);
 
-    Document loadDocumentFromUrl(String path) throws IOException;
+    Document loadDocumentFromUrl(String path, String internalName) throws IOException;
 }

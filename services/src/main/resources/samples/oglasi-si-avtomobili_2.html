@@ -1,0 +1,3865 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Oglasi.si - Avtomobili</title>
+    <title>Oglasi.si - Avtomobili</title>
+    <link rel="icon" href="img/oglasi.ico" type="image/x-icon" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=6, minimum-scale=1">
+    <meta name="csrf-token" content="XzB8Ym0mDy3f9lblanFwCaGB8Xi9WBzWqzaL0CGU">
+    <meta name="msapplication-TileColor" content="#fff">
+    <meta name="theme-color" content="#fff">
+    <meta property="og:type" content="website" />
+    <meta name="msvalidate.01" content="" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="oglasi.si" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keywords" content="Avto-moto,Avtomobili">
+    <meta name="description" content="Brezplačni mali oglasi za avtomobile. Prodajte ali poiščite nova ali rabljena vozila.">
+    <base href="/">
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/core.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css" />
+    <link rel="stylesheet" href="/assets/fonts/fa/css/solid.min.css">
+    <link rel="stylesheet" href="/assets/fonts/fa/css/regular.min.css">
+    <link rel="stylesheet" href="/assets/fonts/fa/css/light.min.css">
+    <link rel="stylesheet" href="/assets/fonts/fa/css/brands.min.css">
+    <link rel="stylesheet" href="/assets/fonts/fa/css/fontawesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.3.0/simplebar.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/css/lightgallery-bundle.min.css">
+    <link rel="stylesheet" href="/assets/css/imgpnl.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/js/jui/jquery-ui.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/js/jui/jquery-ui.structure.min.css" type="text/css" />
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="/assets/js/core.js"></script>
+    <script type="text/javascript">
+        if ('serviceWorker' in navigator) {
+            console.log(' ');
+            navigator.serviceWorker.register('service-worker.js')
+                .then(function() {
+                    console.log(' ');
+                }).catch(function(err) {});
+        }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.3.0/simplebar.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-js/1.3.0/sticky.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G6WPESYGEG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-G6WPESYGEG');
+
+        var title = document.getElementsByTagName('title');
+        if (title.length > 1) {
+            title[1].remove();
+        }
+
+    </script>
+
+    <link href="/assets/css/pages/category.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css" rel="stylesheet">
+
+
+    <script src="/js/app.js" defer></script>
+
+</head>
+<body>
+<div id="header-container">
+    <div class="welcome-box">
+        <div class="cw">
+            <i class="fa fa-times"></i>
+            <p><b><i class="fa fa-sparkles"></i> DOBRODOŠLI na prenovljenih Oglasi.si! <i class="fa fa-sparkles"></i></b></p>
+        </div>
+    </div>
+    <div id="header-main">
+        <div class="cw flx" style="z-index: 7">
+            <div class="logo">
+                <a href="/"><img src="/assets/res/logo.svg" alt="Logo"></a>
+            </div>
+            <div class="search flx">
+                <form method="get"
+                      action="https://oglasi.si/search"
+                      style="width: 100%; display: flex"
+                      id="searchForm"
+                >
+
+                    <input
+                            type="text"
+                            id="searchQuery"
+                            name="searchQuery"
+                            required
+                            placeholder="Išči med 44934 oglasi.."
+                    >
+
+                    <div class="region" style="z-index: 10">
+
+                        <label class="flx center">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Lokacija</span>
+                            <i class="fal fa-chevron-down"></i>
+                        </label>
+                        <div class="region-select">
+                            <ul>
+                                <li>
+                                    <label class=" lrg">
+                                        <input type="checkbox"
+                                               name="regions[]"
+                                               value="6"
+                                               id="regio_6"
+
+                                               checked=&quot;checked>
+                                        <span class="box"></span><span class="text">LJ - Osrednjeslovenska</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class=" lrg">
+                                        <input type="checkbox"
+                                               name="regions[]"
+                                               value="2"
+                                               id="regio_2"
+
+                                               checked=&quot;checked>
+                                        <span class="box"></span><span class="text">MB - Podravska</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class=" lrg">
+                                        <input type="checkbox"
+                                               name="regions[]"
+                                               value="1"
+                                               id="regio_1"
+
+                                               checked=&quot;checked>
+                                        <span class="box"></span><span class="text">CE - Savinjska</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class=" lrg">
+                                        <input type="checkbox"
+                                               name="regions[]"
+                                               value="8"
+                                               id="regio_8"
+
+                                               checked=&quot;checked>
+                                        <span class="box"></span><span class="text">KR - Gorenjska</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class=" lrg">
+                                        <input type="checkbox"
+                                               name="regions[]"
+                                               value="9"
+                                               id="regio_9"
+
+                                               checked=&quot;checked>
+                                        <span class="box"></span><span class="text">GO - S.Primorska</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class=" lrg">
+                                        <input type="checkbox"
+                                               name="regions[]"
+                                               value="10"
+                                               id="regio_10"
+
+                                               checked=&quot;checked>
+                                        <span class="box"></span><span class="text">KP - J.Primorska</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class=" lrg">
+                                        <input type="checkbox"
+                                               name="regions[]"
+                                               value="7"
+                                               id="regio_7"
+
+                                               checked=&quot;checked>
+                                        <span class="box"></span><span class="text">PO - Notranjska</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class=" lrg">
+                                        <input type="checkbox"
+                                               name="regions[]"
+                                               value="11"
+                                               id="regio_11"
+
+                                               checked=&quot;checked>
+                                        <span class="box"></span><span class="text">NM - Dolenjska</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class=" lrg">
+                                        <input type="checkbox"
+                                               name="regions[]"
+                                               value="4"
+                                               id="regio_4"
+
+                                               checked=&quot;checked>
+                                        <span class="box"></span><span class="text">MS - Pomurska</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class=" lrg">
+                                        <input type="checkbox"
+                                               name="regions[]"
+                                               value="3"
+                                               id="regio_3"
+
+                                               checked=&quot;checked>
+                                        <span class="box"></span><span class="text">SG - Koroška</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class=" lrg">
+                                        <input type="checkbox"
+                                               name="regions[]"
+                                               value="5"
+                                               id="regio_5"
+
+                                               checked=&quot;checked>
+                                        <span class="box"></span><span class="text">KK - Posavska</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class=" lrg">
+                                        <input type="checkbox"
+                                               name="regions[]"
+                                               value="191"
+                                               id="regio_191"
+
+                                               checked=&quot;checked>
+                                        <span class="box"></span><span class="text">TR - Zasavska</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class=" lrg">
+                                        <input type="checkbox"
+                                               name="regions[]"
+                                               value="174"
+                                               id="regio_174"
+
+                                               checked=&quot;checked>
+                                        <span class="box"></span><span class="text">Ostale države</span>
+                                    </label>
+                                </li>
+                            </ul>
+                            <a id="select-unselect-all" class="btn btn-primary">Odznači vse regije</a>
+                        </div>
+                    </div>
+                    <button type="button" class="searchClick">
+                        <i class="far fa-search fa-flip-horizontal"></i>
+                    </button>
+                    <span class="mobile-dimmer"></span>
+
+                </form>
+            </div>
+            <div class="search-mobile-btn">
+                <i class="far fa-search fa-flip-horizontal"></i>
+            </div>
+
+            <script>
+                $('.searchClick').click(function () {
+                    let search = $('#searchQuery').val();
+                    let val = '';
+                    let regions = [];
+                    $('.region-select input:checked').each(function () {
+                        val = '"' + $(this).val() + '"';
+                        regions.push(val);
+                    });
+                    console.log(regions)
+                    console.log(JSON.stringify(regions));
+                    let url = 'search?page=1&searchQuery=' + search.replace(' ', '+') + '&regions=[' + regions + ']';
+                    window.location.href = url;
+                });
+
+            </script>
+            <a href="https://oglasi.si/nov-oglas" class="btn blue oval">Oddaj oglas <i
+                    class="fal fa-plus"></i></a>
+        </div>
+    </div>
+    <div id="header-sub">
+        <div class="cw flx">
+            <div class="cat-modal-el categories-toggle ">
+                <div class="cat-toggle-btn"><i class="fa fa-th-large"></i>Kategorije <i class="far fa-chevron-down"></i></div>
+                <div class="categories">
+                    <ul>
+                        <li class="blue">
+                            <a href="/avto-moto">
+                                <i class="fas fa-car"></i>
+                                Avto-moto
+                            </a>
+                        </li>
+                        <li class="orange">
+                            <a href="/nepremicnine">
+                                <i class="fas fa-home-alt"></i>
+                                Nepremičnine
+                            </a>
+                        </li>
+                        <li class="blue">
+                            <a href="/tehnika">
+                                <i class="fas fa-tv"></i>
+                                Tehnika
+                            </a>
+                        </li>
+                        <li class="orange">
+                            <a href="/vse-za-dom">
+                                <i class="fas fa-couch"></i>
+                                Vse za dom
+                            </a>
+                        </li>
+                        <li class="orange">
+                            <a href="/materiali-in-oprema">
+                                <i class="fas fa-window-frame"></i>
+                                Materiali in oprema
+                            </a>
+                        </li>
+                        <li class="green">
+                            <a href="/kmetijstvo">
+                                <i class="fas fa-tractor"></i>
+                                Kmetijstvo
+                            </a>
+                        </li>
+                        <li class="blue">
+                            <a href="/stroji-in-orodja">
+                                <i class="fas fa-hammer"></i>
+                                Stroji in orodja
+                            </a>
+                        </li>
+                        <li class="orange">
+                            <a href="/sport-in-navtika">
+                                <i class="fas fa-dumbbell"></i>
+                                Šport in prosti čas
+                            </a>
+                        </li>
+                        <li class="blue">
+                            <a href="/storitve-in-delo">
+                                <i class="fas fa-briefcase"></i>
+                                Storitve in delo
+                            </a>
+                        </li>
+                        <li class="orange">
+                            <a href="/turizem-in-dogodki">
+                                <i class="fas fa-tree-palm"></i>
+                                Turizem in dogodki
+                            </a>
+                        </li>
+                        <li class="red">
+                            <a href="/zasebni-stiki">
+                                <i class="fas fa-heart"></i>
+                                Zasebni stiki
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <a href="https://oglasi.si/favorite-auth">
+                <i class="far fa-bookmark"></i>
+                <span class="tag favoritesCount hidden">0</span>
+                Shranjeno
+            </a>
+            <a data-modal="modal-login" class="profile"><i class="far fa-user"></i>Prijava</a>
+            <a href="https://oglasi.si/nov-oglas">
+                <i class="fa fa-plus-circle"></i>Oddaj oglas
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="header-categories-browse" class="cat-modal-el">
+    <div class="category">
+        <div class="bio flx">
+            <a href="/avto-moto" class="cat-icon">
+                <i class="fas fa-car blue"></i>
+                <h2>Avto-moto</h2>
+            </a>
+            <a
+                    href="/avto-moto"
+                    class="btn oval blue"
+            >
+                1474                        oglasov</a>
+        </div>
+        <div class="subcategories flx">
+            <ul class="flx">
+
+
+                <li>
+                    <a href="/avtomobili">
+                        Avtomobili
+
+                        <span>
+                                            114                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/motorna-kolesa">
+                        Motorna kolesa
+
+                        <span>
+                                            20                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/gume-in-platisca">
+                        Gume in platišča
+
+                        <span>
+                                            265                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/oprema-za-vozila">
+                        Oprema za vozila
+
+                        <span>
+                                            498                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/nadomestni-deli-za-vozila">
+                        Nadomestni deli za vozila
+
+                        <span>
+                                            536                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/avtoprikolice">
+                        Avtoprikolice
+
+                        <span>
+                                            29                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/pocitniske-prikolice">
+                        Počitniške prikolice
+
+                        <span>
+                                            10                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/cistila-in-nega-vozil">
+                        Čistila in nega vozil
+
+                        <span>
+                                            2                                        </span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="category">
+        <div class="bio flx">
+            <a href="/nepremicnine" class="cat-icon">
+                <i class="fas fa-home-alt orange"></i>
+                <h2>Nepremičnine</h2>
+            </a>
+            <a
+                    href="/nepremicnine"
+                    class="btn oval blue"
+            >
+                482                        oglasov</a>
+        </div>
+        <div class="subcategories flx">
+            <ul class="flx">
+
+
+                <li>
+                    <a href="/hisa">
+                        Hiša
+
+                        <span>
+                                            79                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/stanovanje">
+                        Stanovanje
+
+                        <span>
+                                            113                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/soba">
+                        Soba
+
+                        <span>
+                                            28                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/zemljisce">
+                        Zemljišče
+
+                        <span>
+                                            139                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/poslovni-prostor">
+                        Poslovni prostor
+
+                        <span>
+                                            27                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/garaza">
+                        Garaža
+
+                        <span>
+                                            13                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/pocitniski-objekt">
+                        Počitniški objekt
+
+                        <span>
+                                            68                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/kmetija">
+                        Kmetija
+
+                        <span>
+                                            15                                        </span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="category">
+        <div class="bio flx">
+            <a href="/tehnika" class="cat-icon">
+                <i class="fas fa-tv blue"></i>
+                <h2>Tehnika</h2>
+            </a>
+            <a
+                    href="/tehnika"
+                    class="btn oval blue"
+            >
+                4195                        oglasov</a>
+        </div>
+        <div class="subcategories flx">
+            <ul class="flx">
+
+
+                <li>
+                    <a href="/racunalnistvo">
+                        Računalništvo
+
+                        <span>
+                                            1482                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/telefonija">
+                        Telefonija
+
+                        <span>
+                                            1381                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/tv">
+                        TV
+
+                        <span>
+                                            346                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/audio">
+                        Audio
+
+                        <span>
+                                            200                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/video">
+                        Video
+
+                        <span>
+                                            46                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/gaming">
+                        Gaming
+
+                        <span>
+                                            257                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/droni-in-dodatki">
+                        Droni in dodatki
+
+                        <span>
+                                            6                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/foto-in-optika">
+                        Foto in optika
+
+                        <span>
+                                            24                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/glasbila-in-glasbena-oprema">
+                        Glasbila in glasbena oprema
+
+                        <span>
+                                            328                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/glasba-in-film">
+                        Glasba in film
+
+                        <span>
+                                            14                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/baterijski-vlozki-in-polnilci">
+                        Baterijski vložki in polnilci
+
+                        <span>
+                                            3                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/varnost-in-pametni-dom">
+                        Varnost in pametni dom
+
+                        <span>
+                                            108                                        </span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="category">
+        <div class="bio flx">
+            <a href="/vse-za-dom" class="cat-icon">
+                <i class="fas fa-couch orange"></i>
+                <h2>Vse za dom</h2>
+            </a>
+            <a
+                    href="/vse-za-dom"
+                    class="btn oval blue"
+            >
+                8218                        oglasov</a>
+        </div>
+        <div class="subcategories flx">
+            <ul class="flx">
+
+
+                <li>
+                    <a href="/pohistvo">
+                        Pohištvo
+
+                        <span>
+                                            1441                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/gospodinjski-aparati">
+                        Gospodinjski aparati
+
+                        <span>
+                                            938                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/dodatki-za-dom-in-dekoracija">
+                        Dodatki za dom in dekoracija
+
+                        <span>
+                                            1444                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/oblacila-obutev-modni-dodatki">
+                        Oblačila, obutev, modni dodatki
+
+                        <span>
+                                            396                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/otroska-oprema-sola-in-igrace">
+                        Otroška oprema, šola in igrače
+
+                        <span>
+                                            816                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/knjige-starine-zbirateljstvo">
+                        Knjige, starine, zbirateljstvo
+
+                        <span>
+                                            392                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/zdravje-in-nega">
+                        Zdravje in nega
+
+                        <span>
+                                            496                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/male-zivali">
+                        Male živali
+
+                        <span>
+                                            1071                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/vrt-in-vrtni-stroji">
+                        Vrt in vrtni stroji
+
+                        <span>
+                                            1186                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/bazeni-in-savne">
+                        Bazeni in savne
+
+                        <span>
+                                            38                                        </span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="category">
+        <div class="bio flx">
+            <a href="/materiali-in-oprema" class="cat-icon">
+                <i class="fas fa-window-frame orange"></i>
+                <h2>Materiali in oprema</h2>
+            </a>
+            <a
+                    href="/materiali-in-oprema"
+                    class="btn oval blue"
+            >
+                2659                        oglasov</a>
+        </div>
+        <div class="subcategories flx">
+            <ul class="flx">
+
+
+                <li>
+                    <a href="/gradbeni-materiali">
+                        Gradbeni materiali
+
+                        <span>
+                                            488                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/stavbno-pohistvo">
+                        Stavbno pohištvo
+
+                        <span>
+                                            255                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/montazna-gradnja">
+                        Montažna gradnja
+
+                        <span>
+                                            28                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/materiali-za-instalacije">
+                        Materiali za inštalacije
+
+                        <span>
+                                            208                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/ogrevanje-in-klimatizacija">
+                        Ogrevanje in klimatizacija
+
+                        <span>
+                                            1245                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/embalaza">
+                        Embalaža
+
+                        <span>
+                                            14                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/gradbena-oprema">
+                        Gradbena oprema
+
+                        <span>
+                                            7                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/poslovna-oprema">
+                        Poslovna oprema
+
+                        <span>
+                                            414                                        </span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="category">
+        <div class="bio flx">
+            <a href="/kmetijstvo" class="cat-icon">
+                <i class="fas fa-tractor green"></i>
+                <h2>Kmetijstvo</h2>
+            </a>
+            <a
+                    href="/kmetijstvo"
+                    class="btn oval blue"
+            >
+                13096                        oglasov</a>
+        </div>
+        <div class="subcategories flx">
+            <ul class="flx">
+
+
+                <li>
+                    <a href="/traktorji">
+                        Traktorji
+
+                        <span>
+                                            1015                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/traktorski-prikljucki">
+                        Traktorski priključki
+
+                        <span>
+                                            2075                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/kmetijska-mehanizacija">
+                        Kmetijska mehanizacija
+
+                        <span>
+                                            1747                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/rezervni-deli-kmetijstvo">
+                        Rezervni deli
+
+                        <span>
+                                            2251                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/vzrejne-zivali">
+                        Vzrejne živali
+
+                        <span>
+                                            1802                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/hlevska-in-klavna-oprema">
+                        Hlevska in klavna oprema
+
+                        <span>
+                                            521                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/pridelava-krme-in-krmljenje-zivali">
+                        Pridelava krme in krmljenje živali
+
+                        <span>
+                                            428                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/sajenje-in-setev">
+                        Sajenje in setev
+
+                        <span>
+                                            67                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/pridelki-in-zivila">
+                        Pridelki in živila
+
+                        <span>
+                                            896                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/gozdarstvo-les-in-drva">
+                        Gozdarstvo, les in drva
+
+                        <span>
+                                            1467                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/vinogradnistvo-in-sadjarstvo">
+                        Vinogradništvo in sadjarstvo
+
+                        <span>
+                                            727                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/cebelarstvo">
+                        Čebelarstvo
+
+                        <span>
+                                            100                                        </span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="category">
+        <div class="bio flx">
+            <a href="/stroji-in-orodja" class="cat-icon">
+                <i class="fas fa-hammer blue"></i>
+                <h2>Stroji in orodja</h2>
+            </a>
+            <a
+                    href="/stroji-in-orodja"
+                    class="btn oval blue"
+            >
+                5157                        oglasov</a>
+        </div>
+        <div class="subcategories flx">
+            <ul class="flx">
+
+
+                <li>
+                    <a href="/gradbena-mehanizacija">
+                        Gradbena mehanizacija
+
+                        <span>
+                                            440                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/industrijska-mehanizacija">
+                        Industrijska mehanizacija
+
+                        <span>
+                                            751                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/komunalna-mehanizacija">
+                        Komunalna mehanizacija
+
+                        <span>
+                                            170                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/elektricni-stroji-in-orodja">
+                        Električni stroji in orodja
+
+                        <span>
+                                            1325                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/motorni-stroji-in-orodja">
+                        Motorni stroji in orodja
+
+                        <span>
+                                            398                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/obdelovalni-stroji">
+                        Obdelovalni stroji
+
+                        <span>
+                                            262                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/elektronika-in-elektro-material">
+                        Elektronika in elektro material
+
+                        <span>
+                                            61                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/rocno-orodje">
+                        Ročno orodje
+
+                        <span>
+                                            1362                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/merilne-naprave">
+                        Merilne naprave
+
+                        <span>
+                                            348                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/lestve-in-stolice">
+                        Lestve in stolice
+
+                        <span>
+                                            40                                        </span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="category">
+        <div class="bio flx">
+            <a href="/sport-in-navtika" class="cat-icon">
+                <i class="fas fa-dumbbell orange"></i>
+                <h2>Šport in prosti čas</h2>
+            </a>
+            <a
+                    href="/sport-in-navtika"
+                    class="btn oval blue"
+            >
+                1414                        oglasov</a>
+        </div>
+        <div class="subcategories flx">
+            <ul class="flx">
+
+
+                <li>
+                    <a href="/sportna-oblacila-obutev">
+                        Športna oblačila, obutev
+
+                        <span>
+                                            111                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/kolesarstvo-in-skiroji">
+                        Kolesarstvo in skiroji
+
+                        <span>
+                                            359                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/sporti-in-rekreacija-v-naravi">
+                        Športi in rekreacija v naravi
+
+                        <span>
+                                            112                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/sporti-z-zogo">
+                        Športi z žogo
+
+                        <span>
+                                            9                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/fitnes-in-aerobika">
+                        Fitnes in aerobika
+
+                        <span>
+                                            136                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/sporti-z-loparji">
+                        Športi z loparji
+
+                        <span>
+                                            8                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/zimski-sporti">
+                        Zimski športi
+
+                        <span>
+                                            276                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/vodni-sporti">
+                        Vodni športi
+
+                        <span>
+                                            52                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/borilni-sporti">
+                        Borilni športi
+
+                        <span>
+                                            4                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/sporti-s-tarcami">
+                        Športi s tarčami
+
+                        <span>
+                                            35                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/sportna-prehrana">
+                        Športna prehrana
+
+                        <span>
+                                            5                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/kampiranje-in-taborjenje">
+                        Kampiranje in taborjenje
+
+                        <span>
+                                            117                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/prosti-cas-in-hobiji">
+                        Prosti čas in hobiji
+
+                        <span>
+                                            105                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/igralni-avtomati">
+                        Igralni avtomati
+
+                        <span>
+                                            3                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/navtika">
+                        Navtika
+
+                        <span>
+                                            82                                        </span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="category">
+        <div class="bio flx">
+            <a href="/storitve-in-delo" class="cat-icon">
+                <i class="fas fa-briefcase blue"></i>
+                <h2>Storitve in delo</h2>
+            </a>
+            <a
+                    href="/storitve-in-delo"
+                    class="btn oval blue"
+            >
+                801                        oglasov</a>
+        </div>
+        <div class="subcategories flx">
+            <ul class="flx">
+
+
+                <li>
+                    <a href="/delovna-mesta-zaposlitev">
+                        Delo in zaposlitev
+
+                        <span>
+                                            130                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/najemi">
+                        Najemi
+
+                        <span>
+                                            7                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/dom-storitve">
+                        Dom storitve
+
+                        <span>
+                                            44                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/gradnja-in-obnova">
+                        Gradnja in obnova
+
+                        <span>
+                                            179                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/osebne-in-zdravstvene-storitve">
+                        Osebne in zdravstvene storitve
+
+                        <span>
+                                            45                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/avtomobilizem-in-prevozi">
+                        Avtomobilizem in prevozi
+
+                        <span>
+                                            60                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/racunalniske-in-tehnicne-storitve">
+                        Računalniške in tehnične storitve
+
+                        <span>
+                                            50                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/izobrazevanje-in-prevajanje">
+                        Izobraževanje in prevajanje
+
+                        <span>
+                                            116                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/poslovne-in-financne-storitve">
+                        Poslovne in finančne storitve
+
+                        <span>
+                                            89                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/kmetijske-in-gozdarske-storitve">
+                        Kmetijske in gozdarske storitve
+
+                        <span>
+                                            2                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/obrtne-dejavnosti">
+                        Obrtne dejavnosti
+
+                        <span>
+                                            11                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/vedezevanje">
+                        Vedeževanje
+
+                        <span>
+                                            35                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/ostale-storitve">
+                        Ostale storitve
+
+                        <span>
+                                            33                                        </span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="category">
+        <div class="bio flx">
+            <a href="/turizem-in-dogodki" class="cat-icon">
+                <i class="fas fa-tree-palm orange"></i>
+                <h2>Turizem in dogodki</h2>
+            </a>
+            <a
+                    href="/turizem-in-dogodki"
+                    class="btn oval blue"
+            >
+                101                        oglasov</a>
+        </div>
+        <div class="subcategories flx">
+            <ul class="flx">
+
+
+                <li>
+                    <a href="/najem-pocitniskih-nastanitev">
+                        Najem počitniških nastanitev
+
+                        <span>
+                                            44                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/kmecki-turizmi-in-gostisca">
+                        Kmečki turizmi in gostišča
+
+                        <span>
+                                            2                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/hotelirstvo">
+                        Hotelirstvo
+
+                        <span>
+                                            0                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/potovanja-in-izleti">
+                        Potovanja in izleti
+
+                        <span>
+                                            22                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/terme-in-wellness">
+                        Terme in wellness
+
+                        <span>
+                                            7                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/zimski-turizem">
+                        Zimski turizem
+
+                        <span>
+                                            1                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/najem-avtodomov-prikolic">
+                        Najem avtodomov, prikolic
+
+                        <span>
+                                            7                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/najem-plovil">
+                        Najem plovil
+
+                        <span>
+                                            0                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/organizacija-dogodkov">
+                        Organizacija dogodkov
+
+                        <span>
+                                            15                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/vstopnice-in-boni">
+                        Vstopnice in boni
+
+                        <span>
+                                            3                                        </span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="category">
+        <div class="bio flx">
+            <a href="/zasebni-stiki" class="cat-icon">
+                <i class="fas fa-heart red"></i>
+                <h2>Zasebni stiki</h2>
+            </a>
+            <a
+                    href="/zasebni-stiki"
+                    class="btn oval blue"
+            >
+                7333                        oglasov</a>
+        </div>
+        <div class="subcategories flx">
+            <ul class="flx">
+
+
+                <li>
+                    <a href="/resne-zveze-in-prijateljstva">
+                        Resne zveze in prijateljstva
+
+                        <span>
+                                            364                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/avanture">
+                        Avanture
+
+                        <span>
+                                            2516                                        </span>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="/erotika">
+                        Erotika
+
+                        <span>
+                                            4453                                        </span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="modal-login" class="modal">
+    <div class="content">
+        <div class="head">
+            <h2>Prijava v Oglasi.si</h2>
+        </div>
+        <div class="tc ext-logins">
+
+            <a href="https://oglasi.si/oauth/google" class="btn oval google">
+                <img src="/assets/res/ico/google.svg"> Google prijava
+            </a>
+        </div>
+        <div class="login-oglasi">
+            <div class="sep"><strong>Ali se prijavite</strong></div>
+            <form class="login_inputs frm-inputs"
+
+
+            >
+
+
+                <div class="row">
+                    <div class="input input-type-email fw">
+                        <div class="input-inner">
+                            <input type="" name="email" placeholder="Vpišite vaš e-poštni naslov ali uporabniško ime" required>
+                            <div class="input-decor">
+                                <i class="decor fas fa-user"></i>
+                                <i class="error-ico fas fa-exclamation-circle"></i>
+                                <p style="display: none; padding-top: 8px;" class="error_email">Vnesite veljaven e-poštni naslov</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row last">
+                    <div class="input input-type-email fw">
+                        <div class="input-inner">
+                            <input type="password" name="password" placeholder="Vpišite vaše geslo" required>
+                            <div class="input-decor">
+                                <i class="decor fas fa-lock"></i>
+                                <i class="error-ico fas fa-exclamation-circle"></i>
+                                <p style="display: none; padding-top: 8px;" class="error_password">Vnesite veljavno gesl</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forgotten-password">
+                    <a href="https://oglasi.si/forgot">Ste pozabili geslo?</a>
+                </div>
+
+                <button type="button" class="btn oval blue fw login_form">Prijava</button>
+            </form>
+
+            <div class="new-user">
+                <p>
+                    Še nimate profila?
+                    <a href="/register" class="lnk">Registracija</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function() {
+
+        //login on button login_inputs click
+        $('.login_form').on("click",function (e) {
+            e.preventDefault();
+            let data = $('.login_inputs').serialize();
+            $.ajax({
+                url: "login",
+                method: 'POST',
+                data: data,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (response) {
+                    window.location.href = '/profile';
+                },
+                error: (data) => {
+                    console.log('error', data)
+                    $('.input-decor p').empty();
+                    $.each(data.responseJSON.errors, (index, value) => {
+                        $('.error_' + index).html(value).css({ color: 'red', display : 'block' });
+                    });
+                },
+            });
+        })
+
+
+    });
+
+</script>
+<main>
+    <div class="cw blue">
+        <div class="intro-banner flx">
+            <div class="banner bilboard">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4039748238282147" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4039748238282147" data-ad-slot="3707198411" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+            <div class="banner bilboard mobile">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4039748238282147" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4039748238282147" data-ad-slot="7475389902" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+        </div>
+        <div class="breadcrumbs">
+            <ul>
+                <li><a href="https://oglasi.si">Domov</a><i class="far fa-chevron-right"></i></li>
+                <li><a href="https://oglasi.si/kategorije/avto-moto">Avto-moto</a><i class="far fa-chevron-right"></i></li>
+                <li><a href="https://oglasi.si/kategorije/avtomobili">Avtomobili</a><i class="far fa-chevron-right"></i></li>
+            </ul>
+        </div>
+
+        <input type="hidden" name="categoryPage" value="avtomobili">
+        <div class="flx shop-divide">
+            <div class="left post-filters np">
+                <h2><i class="fal fa-sliders-h"></i> Dodatni kriteriji</h2>
+                <div class="filter open">
+                    <h3 class="flx">Regija <i class="far fa-chevron-down"></i></h3>
+                    <div class="filter-scroll">
+                        <ul class="filter-checklist regions-filter">
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="6" name="regions" >
+
+                                    <span class="text">LJ - Osrednjeslovenska<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="2" name="regions" >
+
+                                    <span class="text">MB - Podravska<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1" name="regions" >
+
+                                    <span class="text">CE - Savinjska<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="8" name="regions" >
+
+                                    <span class="text">KR - Gorenjska<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="9" name="regions" >
+
+                                    <span class="text">GO - S.Primorska<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="10" name="regions" >
+
+                                    <span class="text">KP - J.Primorska<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="7" name="regions" >
+
+                                    <span class="text">PO - Notranjska<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="11" name="regions" >
+
+                                    <span class="text">NM - Dolenjska<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="4" name="regions" >
+
+                                    <span class="text">MS - Pomurska<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="3" name="regions" >
+
+                                    <span class="text">SG - Koroška<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="5" name="regions" >
+
+                                    <span class="text">KK - Posavska<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="191" name="regions" >
+
+                                    <span class="text">TR - Zasavska<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="174" name="regions" >
+
+                                    <span class="text">Ostale države<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="filter open">
+                    <h3 class="flx">Vrsta ponudbe <i class="far fa-chevron-down"></i></h3>
+                    <div class="filter-scroll">
+                        <ul class="filter-checklist productType-filter">
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1" name="productType" >
+                                    <span class="text">Prodam<i class="far fa-times"></i>
+                                            </span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="2" name="productType" >
+                                    <span class="text">Kupim<i class="far fa-times"></i>
+                                            </span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="5" name="productType" >
+                                    <span class="text">Podarim<i class="far fa-times"></i>
+                                            </span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="filter open">
+                    <h3 class="flx">Cena <i class="far fa-chevron-down"></i></h3>
+                    <div class="filter-scroll">
+                        <div class="filter-range">
+                            <input type="hidden" class="rangeslider" name="price" value="" data-type="double" data-min="0" data-max="134990"
+                                   data-from="0" data-to="134990" />
+
+
+                            <div class="range-input flx">
+
+                                <input style="padding: 2px" type="text" class="range-input-from" value="0" /> -
+                                <input style="padding: 2px" type="text" class="range-input-to" value="134990" />
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="filter open">
+                    <h3 class="flx">Znamka <i class="far fa-chevron-down"></i></h3>
+                    <div class="filter-scroll">
+                        <ul class="filter-checklist custom-filter custom299-filter">
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1264" name="custom-299" >
+                                    <span class="text">Alfa Romeo<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1265" name="custom-299" >
+                                    <span class="text">Audi<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1266" name="custom-299" >
+                                    <span class="text">BMW<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1267" name="custom-299" >
+                                    <span class="text">Chevrolet<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1268" name="custom-299" >
+                                    <span class="text">Citroen<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1269" name="custom-299" >
+                                    <span class="text">Cupra<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1270" name="custom-299" >
+                                    <span class="text">Dacia<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1271" name="custom-299" >
+                                    <span class="text">DS Automobiles<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1272" name="custom-299" >
+                                    <span class="text">FIAT<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1273" name="custom-299" >
+                                    <span class="text">Ford<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1274" name="custom-299" >
+                                    <span class="text">Honda<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1275" name="custom-299" >
+                                    <span class="text">Hyundai<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1276" name="custom-299" >
+                                    <span class="text">Jaguar<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1277" name="custom-299" >
+                                    <span class="text">Jeep<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1278" name="custom-299" >
+                                    <span class="text">Kia<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1279" name="custom-299" >
+                                    <span class="text">Land Rover<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1280" name="custom-299" >
+                                    <span class="text">Lexus<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1281" name="custom-299" >
+                                    <span class="text">Mazda<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1282" name="custom-299" >
+                                    <span class="text">Mercedes-Benz<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1283" name="custom-299" >
+                                    <span class="text">MG<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1284" name="custom-299" >
+                                    <span class="text">Mini<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1285" name="custom-299" >
+                                    <span class="text">Mitsubishi<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1286" name="custom-299" >
+                                    <span class="text">Nissan<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1287" name="custom-299" >
+                                    <span class="text">Opel<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1288" name="custom-299" >
+                                    <span class="text">Peugeot<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1289" name="custom-299" >
+                                    <span class="text">Porsche<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1290" name="custom-299" >
+                                    <span class="text">Renault<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1291" name="custom-299" >
+                                    <span class="text">SEAT<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1292" name="custom-299" >
+                                    <span class="text">Smart<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1293" name="custom-299" >
+                                    <span class="text">Subaru<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1294" name="custom-299" >
+                                    <span class="text">Suzuki<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1295" name="custom-299" >
+                                    <span class="text">Škoda<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1296" name="custom-299" >
+                                    <span class="text">Tesla<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1297" name="custom-299" >
+                                    <span class="text">Toyota<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1298" name="custom-299" >
+                                    <span class="text">Volkswagen<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1299" name="custom-299" >
+                                    <span class="text">Volvo<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1300" name="custom-299" >
+                                    <span class="text">Druge znamke<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+
+
+                <div class="filter open">
+                    <h3 class="flx">Letnik<i class="far fa-chevron-down"></i></h3>
+                    <div class="filter-scroll">
+
+                        <div class="filter-range custom-filter">
+
+                            <input type="hidden" class="rangeslider" name="custom-300" value="" data-type="double" data-min="0"
+                                   data-max="94600"
+                                   data-from="0"
+                                   data-to="94600" />
+
+
+
+
+
+                            <div class="range-input flx">
+                                <input style="padding: 2px" type="text" class="range-input-from"
+                                       value="0" />
+                                -
+                                <input style="padding: 2px" type="text" class="range-input-to"
+                                       value="94600" />
+
+
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="filter open">
+                    <h3 class="flx">Prevoženi km<i class="far fa-chevron-down"></i></h3>
+                    <div class="filter-scroll">
+
+                        <div class="filter-range custom-filter">
+
+                            <input type="hidden" class="rangeslider" name="custom-301" value="" data-type="double" data-min="0"
+                                   data-max="460000"
+                                   data-from="0"
+                                   data-to="460000" />
+
+
+
+
+
+                            <div class="range-input flx">
+                                <input style="padding: 2px" type="text" class="range-input-from"
+                                       value="0" />
+                                -
+                                <input style="padding: 2px" type="text" class="range-input-to"
+                                       value="460000" />
+
+
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="filter open">
+                    <h3 class="flx">Moč motorja (kW)<i class="far fa-chevron-down"></i></h3>
+                    <div class="filter-scroll">
+
+                        <div class="filter-range custom-filter">
+
+                            <input type="hidden" class="rangeslider" name="custom-302" value="" data-type="double" data-min="0"
+                                   data-max="441"
+                                   data-from="0"
+                                   data-to="441" />
+
+
+
+
+
+                            <div class="range-input flx">
+                                <input style="padding: 2px" type="text" class="range-input-from"
+                                       value="0" />
+                                -
+                                <input style="padding: 2px" type="text" class="range-input-to"
+                                       value="441" />
+
+
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="filter open">
+                    <h3 class="flx">Vrsta goriva <i class="far fa-chevron-down"></i></h3>
+                    <div class="filter-scroll">
+                        <ul class="filter-checklist custom-filter custom303-filter">
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1305" name="custom-303" >
+                                    <span class="text">dizel<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1306" name="custom-303" >
+                                    <span class="text">bencin<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1307" name="custom-303" >
+                                    <span class="text">elektrika<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1308" name="custom-303" >
+                                    <span class="text">hibrid<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1309" name="custom-303" >
+                                    <span class="text">ostalo<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+
+                <div class="filter open">
+                    <h3 class="flx">Menjalnik <i class="far fa-chevron-down"></i></h3>
+                    <div class="filter-scroll">
+                        <ul class="filter-checklist custom-filter custom304-filter">
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1310" name="custom-304" >
+                                    <span class="text">ročni<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" value="1311" name="custom-304" >
+                                    <span class="text">avtomatski<i class="far fa-times"></i></span>
+                                </label>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+
+                <div id="filter-controls" class="filter tc">
+                    <button class="btn oval update bgt disabled">Posodobi filter</button>
+
+                </div>
+                <div class="banner sky sticky">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4039748238282147" crossorigin="anonymous"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4039748238282147" data-ad-slot="7475389902" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                </div>
+
+            </div>
+            <div class="right">
+                <div class="sort-by flx sort-filter">
+                    <p>Število rezultatov: <span id="result-count" class="result-count">114</span></p>
+                    <select class="select" name="sort" data-placeholder="Razvrsti oglase">
+                        <option value="date_sort" >Novejši naprej
+                        <option value="price_desc" >Dražji naprej
+                        </option>
+                        <option value="price_asc" >Cenejši naprej
+                        </option>
+                    </select>
+                </div>
+                <div id="result">
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/bmw-serija-4-gran-coupe-420i-sport-line-kot-nov/1938798">
+                                <div class="img">
+                                    <img src="/storage/products/1938798/thumb/89663967413img20230521085140edit11251815204010resized20230528070501340.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/bmw-serija-4-gran-coupe-420i-sport-line-kot-nov/1938798">BMW serija 4 Gran Coupe 420i Sport Line KOT NOV.</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">25.400 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Kamnik</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 05.01.2024</p>
+
+                                <a onclick="favorite(1938798, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/vw-golf-2/1938322">
+                                <div class="img">
+                                    <img src="/img/listing_no_photo.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/vw-golf-2/1938322">VW Golf</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">2.350 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Slovenske Konjice</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 04.01.2024</p>
+
+                                <a onclick="favorite(1938322, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/odkup-vozil-041774816-3/1937859">
+                                <div class="img">
+                                    <img src="/storage/products/1937859/thumb/92475875488odkup.vozil.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/odkup-vozil-041774816-3/1937859">Odkup vozil</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">Kupim</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Domžale</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 03.01.2024</p>
+
+                                <a onclick="favorite(1937859, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/cupra-ateca-20-tsi-dsg-4drivefull-ledacckljuka301ps/1926360">
+                                <div class="img">
+                                    <img src="/storage/products/1926360/thumb/2035084634701.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/cupra-ateca-20-tsi-dsg-4drivefull-ledacckljuka301ps/1926360">Cupra Ateca 2.0 TSI DSG 4Drive | FULL LED | ACC | KLJUKA | 301PS</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">28.890 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Maribor</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 26.12.2023</p>
+
+                                <a onclick="favorite(1926360, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/peugeot-407-sw/1937022">
+                                <div class="img">
+                                    <img src="/storage/products/1937022/thumb/446736258420231209141848.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/peugeot-407-sw/1937022">Peugeot 407 sw</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">2.000 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Raka</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 03.01.2024</p>
+
+                                <a onclick="favorite(1937022, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/bmw-318-d/1936553">
+                                <div class="img">
+                                    <img src="/storage/products/1936553/thumb/80810654580img20231125190103.2.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/bmw-318-d/1936553">BMW 318 d</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">12.900 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Maribor</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 01.01.2024</p>
+
+                                <a onclick="favorite(1936553, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/skoda-octavia-12-tsi-2014g-reg-do-824/1935113">
+                                <div class="img">
+                                    <img src="/storage/products/1935113/thumb/83166144115img20231022121357.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/skoda-octavia-12-tsi-2014g-reg-do-824/1935113">Škoda Octavia 1.2 TSI, 2014.g., reg do 8/24</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">10.500 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Hrvaška</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 27.12.2023</p>
+
+                                <a onclick="favorite(1935113, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/bmw-320-d/1932741">
+                                <div class="img">
+                                    <img src="/storage/products/1932741/thumb/940848257712.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/bmw-320-d/1932741">BMW 320 d</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">23.900 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Ljubljana</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 18.12.2023</p>
+
+                                <a onclick="favorite(1932741, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/golf-iv-sdi-50kw-brezhibenregistriran-letnik-2003/1933721">
+                                <div class="img">
+                                    <img src="/storage/products/1933721/thumb/40164628361vw.golf7.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/golf-iv-sdi-50kw-brezhibenregistriran-letnik-2003/1933721">GOLF IV SDI-50kw-brezhiben,registriran letnik 2003</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">1.300 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Miklavž na Dravskem Polju</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 05.01.2024</p>
+
+                                <a onclick="favorite(1933721, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/ford-probe-gt/1933298">
+                                <div class="img">
+                                    <img src="/storage/products/1933298/thumb/68478948399f.gt.zadi.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/ford-probe-gt/1933298">FORD PROBE GT</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">6.700 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Ljubljana</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 20.12.2023</p>
+
+                                <a onclick="favorite(1933298, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="result-banner flx">
+
+                        <div class="banner">
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-format="fluid"
+                                 data-ad-layout-key="-ft-r+8m-95-d3"
+                                 data-ad-client="ca-pub-4039748238282147"
+                                 data-ad-slot="1354518426"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                        </div>
+
+                    </div>
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/vw-golf-4/1933288">
+                                <div class="img">
+                                    <img src="/img/listing_no_photo.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/vw-golf-4/1933288">VW Golf 4</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">1.100 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Pesnica pri Mariboru</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 19.12.2023</p>
+
+                                <a onclick="favorite(1933288, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/bmw-x2-sdrive18d-m-kamera-led-ambient-gretje-alkantara/1931123">
+                                <div class="img">
+                                    <img src="/storage/products/1931123/thumb/9234537568901.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/bmw-x2-sdrive18d-m-kamera-led-ambient-gretje-alkantara/1931123">BMW X2 sDrive18d | M | Kamera | LED | Ambient | Gretje | Alkantara</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">21.990 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Maribor</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 11.12.2023</p>
+
+                                <a onclick="favorite(1931123, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/odkup-vozil-041774816-3/1933164">
+                                <div class="img">
+                                    <img src="/storage/products/1933164/thumb/51713109771odkup.vozil.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/odkup-vozil-041774816-3/1933164">Odkup vozil</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">Kupim</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Domžale</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 18.12.2023</p>
+
+                                <a onclick="favorite(1933164, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/audi-e-tron-sportback-55-q-sline-keygo-pano-zracno360kljuka/1931109">
+                                <div class="img">
+                                    <img src="/storage/products/1931109/thumb/4683124875001.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/audi-e-tron-sportback-55-q-sline-keygo-pano-zracno360kljuka/1931109">Audi e-tron Sportback 55 Q | Sline | KeyGO | Pano | Zračno|360|Kljuka</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">62.990 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Maribor</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 11.12.2023</p>
+
+                                <a onclick="favorite(1931109, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/kia-sportage-x4/1932195">
+                                <div class="img">
+                                    <img src="/img/listing_no_photo.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/kia-sportage-x4/1932195">KIA SPORTAGE x4</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">Po dogovoru</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Maribor</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 14.12.2023</p>
+
+                                <a onclick="favorite(1932195, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/unimog-406/1932031">
+                                <div class="img">
+                                    <img src="/img/listing_no_photo.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/unimog-406/1932031">Unimog 406</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">Po dogovoru</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Jesenice</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 13.12.2023</p>
+
+                                <a onclick="favorite(1932031, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/kesonar/1932021">
+                                <div class="img">
+                                    <img src="/img/listing_no_photo.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/kesonar/1932021">Kesonar</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">Po dogovoru</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Moravske Toplice</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 13.12.2023</p>
+
+                                <a onclick="favorite(1932021, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/mercedes-benz-a-razred-180-aut-amg-kamera-gretje2-conska-klima/1931127">
+                                <div class="img">
+                                    <img src="/storage/products/1931127/thumb/8387950729301.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/mercedes-benz-a-razred-180-aut-amg-kamera-gretje2-conska-klima/1931127">Mercedes-Benz A-Razred 180 | AUT | AMG | Kamera |Gretje|2 conska Klima</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">25.490 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Maribor</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 11.12.2023</p>
+
+                                <a onclick="favorite(1931127, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/bmw-x2-xdrive20d-m-led-keygo-acc-kamera-mem-dab-navi/1931126">
+                                <div class="img">
+                                    <img src="/storage/products/1931126/thumb/6449375506801.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/bmw-x2-xdrive20d-m-led-keygo-acc-kamera-mem-dab-navi/1931126">BMW X2 xDrive20d | M | LED | KeyGO | ACC | Kamera | MEM | DAB | NAVI+</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">28.490 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Maribor</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 11.12.2023</p>
+
+                                <a onclick="favorite(1931126, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/audi-a3-20-tdi-3xs-line-led-senzorji-navi-klima-gretje/1931125">
+                                <div class="img">
+                                    <img src="/storage/products/1931125/thumb/4832846059701.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/audi-a3-20-tdi-3xs-line-led-senzorji-navi-klima-gretje/1931125">Audi A3 2.0 TDI | 3xS-Line | LED | Senzorji | Navi+ | Klima | Gretje</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">14.990 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Maribor</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 11.12.2023</p>
+
+                                <a onclick="favorite(1931125, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="result-banner flx">
+
+                        <div class="banner">
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-format="fluid"
+                                 data-ad-layout-key="-ft-r+8m-95-d3"
+                                 data-ad-client="ca-pub-4039748238282147"
+                                 data-ad-slot="1354518426"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                        </div>
+
+                    </div>
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/audi-a4-avant-40td-quattro-3xs-line-matrix-virtual-webambient/1931122">
+                                <div class="img">
+                                    <img src="/storage/products/1931122/thumb/1343280987801.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/audi-a4-avant-40td-quattro-3xs-line-matrix-virtual-webambient/1931122">Audi A4 Avant 40TD quattro | 3xS-Line | Matrix | Virtual |WEB|Ambient</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">27.990 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Maribor</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 11.12.2023</p>
+
+                                <a onclick="favorite(1931122, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/bmw-gran-coupe-218i-at-m-fullled-senzorji-ambient-klima/1931121">
+                                <div class="img">
+                                    <img src="/storage/products/1931121/thumb/8636254727001.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/bmw-gran-coupe-218i-at-m-fullled-senzorji-ambient-klima/1931121">BMW Gran Coupe 218i | AT | M | FullLED | Senzorji | Ambient | Klima</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">25.990 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Maribor</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 11.12.2023</p>
+
+                                <a onclick="favorite(1931121, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/mercedes-benz-c220d-amgambientvelikanavpanoramaservisiran/1931120">
+                                <div class="img">
+                                    <img src="/storage/products/1931120/thumb/4774267343601.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/mercedes-benz-c220d-amgambientvelikanavpanoramaservisiran/1931120">Mercedes-Benz C220d AMG|Ambient|VelikaNAV|Panorama|Servisiran</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">25.990 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Maribor</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 11.12.2023</p>
+
+                                <a onclick="favorite(1931120, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/audi-a4-40tdi-quattro-matrix-acc-kljuka-webasto-54000km/1931118">
+                                <div class="img">
+                                    <img src="/storage/products/1931118/thumb/5633103189401.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/audi-a4-40tdi-quattro-matrix-acc-kljuka-webasto-54000km/1931118">Audi A4 40TDI quattro | Matrix | ACC | Kljuka | Webasto | 54.000km</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">29.490 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Maribor</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 11.12.2023</p>
+
+                                <a onclick="favorite(1931118, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/audi-q3-40tfsi-quattro-ledvirtualkameragretjeddv/1931117">
+                                <div class="img">
+                                    <img src="/storage/products/1931117/thumb/4877706540301.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/audi-q3-40tfsi-quattro-ledvirtualkameragretjeddv/1931117">Audi Q3 40TFSI quattro |LED|Virtual|Kamera|Gretje|DDV</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">29.990 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Maribor</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 11.12.2023</p>
+
+                                <a onclick="favorite(1931117, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/mercedes-benz-e-razred-220d-amg-kamera-kljuka-ambientna/1931116">
+                                <div class="img">
+                                    <img src="/storage/products/1931116/thumb/8421781070801.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/mercedes-benz-e-razred-220d-amg-kamera-kljuka-ambientna/1931116">Mercedes-Benz E-Razred 220d | AMG | Kamera | Kljuka | Ambientna</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">30.990 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Maribor</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 11.12.2023</p>
+
+                                <a onclick="favorite(1931116, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/bmw-coupe-420d-xdrivemledkameraaccvirtualkljuka/1931115">
+                                <div class="img">
+                                    <img src="/storage/products/1931115/thumb/39246812401.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/bmw-coupe-420d-xdrivemledkameraaccvirtualkljuka/1931115">BMW Coupe 420d xDrive|M|LED|Kamera|ACC|Virtual|Kljuka</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">44.490 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Maribor</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 11.12.2023</p>
+
+                                <a onclick="favorite(1931115, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/bmw-coupe-420d-xdrive-m-laser-pano-acc-keygo-harman/1931114">
+                                <div class="img">
+                                    <img src="/storage/products/1931114/thumb/5456194674601.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/bmw-coupe-420d-xdrive-m-laser-pano-acc-keygo-harman/1931114">BMW Coupe 420d xDrive | M | Laser | Pano | ACC | KeyGO | Harman</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">47.990 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Maribor</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 11.12.2023</p>
+
+                                <a onclick="favorite(1931114, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/bmw-serija-5-30i-xdrive-m-pano-acc-360-keygo/1931103">
+                                <div class="img">
+                                    <img src="/storage/products/1931103/thumb/4963295161801.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/bmw-serija-5-30i-xdrive-m-pano-acc-360-keygo/1931103">BMW serija 5 30i xDrive | M | Pano | ACC | 360 | KeyGO</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">34.990 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Maribor</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 11.12.2023</p>
+
+                                <a onclick="favorite(1931103, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="post-results">
+
+
+                        <div class=" result flx">
+
+                            <a href="oglas/avtomobili/mercedes-benz-s-razred-400d-4m-4ws-digital-pano-tv/1931102">
+                                <div class="img">
+                                    <img src="/storage/products/1931102/thumb/7843495214501.jpg">
+                                </div>
+                            </a>
+
+
+                            <div class="upper flx">
+                                <h3>
+                                    <a href="oglas/avtomobili/mercedes-benz-s-razred-400d-4m-4ws-digital-pano-tv/1931102">Mercedes-Benz S-Razred 400d 4M | 4WS | Digital | Pano | TV</a>
+                                </h3>
+                                <div class="meta">
+                                    <strong class="price">112.990 €</strong>
+                                </div>
+                            </div>
+
+
+                            <ul class="props">
+
+                                <li><i class="fas fa-map-marker-alt"></i> Maribor</li>
+                            </ul>
+
+                            <div class="lower flx">
+
+
+                                <p>Posodobljeno 11.12.2023</p>
+
+                                <a onclick="favorite(1931102, this)" class="save
+
+							">
+                                    <i title="Shrani oglas" class="fa fa-bookmark"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="pagination flx">
+                        <a href="javascript:void(0)" class="text"><i class="far fa-chevron-left"></i> Prejšnja</a>
+                        <a href="https://oglasi.si/avtomobili?&amp;page=1" class="active bgt">
+                            1
+                        </a>
+                        <a href="https://oglasi.si/avtomobili?&amp;page=2" class="">
+                            2
+                        </a>
+                        <a href="https://oglasi.si/avtomobili?&amp;page=3" class="">
+                            3
+                        </a>
+                        <a href="https://oglasi.si/avtomobili?&amp;page=4" class="">
+                            4
+                        </a>
+                        <a href="https://oglasi.si/avtomobili?page=2" class="text">Naslednja <i class="far fa-chevron-right"></i></a>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+<div id="footer-container">
+    <div class="cw">
+        <div id="footer" class="flx">
+            <div class="seg">
+                <h3>Kategorije oglasov</h3>
+                <ul>
+                    <li>
+                        <a href="/kategorije/avto-moto">Avto-moto</a>
+                    </li>
+                    <li>
+                        <a href="/kategorije/nepremicnine">Nepremičnine</a>
+                    </li>
+                    <li>
+                        <a href="/kategorije/tehnika">Tehnika</a>
+                    </li>
+                    <li>
+                        <a href="/kategorije/vse-za-dom">Vse za dom</a>
+                    </li>
+                    <li>
+                        <a href="/kategorije/materiali-in-oprema">Materiali in oprema</a>
+                    </li>
+                    <li>
+                        <a href="/kategorije/kmetijstvo">Kmetijstvo</a>
+                    </li>
+                    <li>
+                        <a href="/kategorije/stroji-in-orodja">Stroji in orodja</a>
+                    </li>
+                    <li>
+                        <a href="/kategorije/sport-in-navtika">Šport in prosti čas</a>
+                    </li>
+                    <li>
+                        <a href="/kategorije/storitve-in-delo">Storitve in delo</a>
+                    </li>
+                    <li>
+                        <a href="/kategorije/turizem-in-dogodki">Turizem in dogodki</a>
+                    </li>
+                    <li>
+                        <a href="/kategorije/zasebni-stiki">Zasebni stiki</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="seg">
+                <h3>Oglasi.si</h3>
+                <ul>
+                    <li>
+                        <a href="/nov-oglas">Oddaj oglas</a>
+                    </li>
+                    <li>
+                        <a href="/register">Registracija</a>
+                    </li>
+                    <li>
+                        <a href="/pogosta-vprasanja">Pomoč</a>
+                    </li>
+                    <li>
+                        <a href="/pogoji-poslovanja">Pogoji uporabe</a>
+                    </li>
+                    <li>
+                        <a href="/politika-zasebnosti">Politika zasebnosti</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="seg">
+                <h3>Poslovni partnerji</h3>
+                <ul>
+                    <li>
+                        <a href="/trgovina-oglasi">Trgovina na oglasi.si</a>
+                    </li>
+
+                    <li>
+                        <a href="/trgovine/">Vsi trgovci</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="seg">
+                <a id="footer-fb" href="https://www.facebook.com/www.oglasi.si">Spremljajte nas <i class="fab fa-facebook"></i></a>
+            </div>
+
+            <div id="footer-contact-circle" class="flx center">
+                <h4>Podpora uporabnikom:</h4>
+                <div class="contact">
+                    <a href="tel:+38641886000" class="flx"><i class="fas fa-phone fa-flip-horizontal"></i> 041 886 000
+                    </a>
+                    <p>PON - PET: 8:00 - 14:00</p>
+                    <a href="mailto:info@oglasi.si" class="flx"><i class="fas fa-envelope"></i> info@oglasi.si</a>
+                    <p>VSAK DAN: 00:00 - 24:00</p>
+                </div>
+                <a href="/pogosta-vprasanja" class="btn blue oval">Pomoč uporabnikom</a>
+            </div>
+
+        </div>
+        <div id="socket">
+            © Oglasi.si. Vse pravice pridržane.
+        </div>
+    </div>
+    <script src="/assets/js/imgpnl.js"></script>
+    <script src="/assets/js/jui/jquery-ui.min.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4039748238282147" crossorigin="anonymous"></script>
+    <script async src="//oglasi.si/adserver/www/delivery/asyncjs.php"></script></div>
+</div>
+<div id="cookies-disc">
+    <div class="cw flx">
+        <div class="content">
+            <h3>Uporaba piškotkov na Oglasi.si</h3>
+            <p>To spletno mesto uporablja piškotke. Če se z uporabo strinjate nadaljujte brskanje s klikom na gumb
+                “Dovoli”. V kolikor nadaljujete z ogledom spletnega mesta bodo nastavljeni piškotki, ki so nujno
+                potrebni za delovanje spletnega mesta.</p>
+        </div>
+        <a class="btn oval white">Dovoli piškotke</a>
+    </div>
+</div>
+<script>
+    $(function() {
+        $('#cookies-disc a').click(function() {
+            Cookies.set('cookies_agreed', '1', {
+                expires: 800
+            });
+            $('#cookies-disc').fadeOut(100);
+        });
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+<script src="/assets/js/pages/category.js"></script>
+<script>
+
+    $('.search .region-select input[name="regions[]"]').click(function () {
+        if ($(this).next().find('i').css('opacity') != 0) {
+            $(this).next().find('i').css('opacity', 0)
+        } else {
+            $(this).next().find('i').css('opacity', 1)
+        }
+        //console.log($(this).val(), $(this).attr('checked'))
+    })
+    //unselect all regions
+    var select=true;
+    $('#select-unselect-all').click(function () {
+        var button=$('#select-unselect-all');
+        //toggle select/unselect all
+        if(select==false){
+            select=true;
+        }else{
+            select=false;
+        }
+
+        $('.region-select input[name="regions[]"]').each(function () {
+            if(select==false){
+                $(this).prop('checked', false);
+                $(this).next().find('i').css('opacity', 0)
+            }else{
+                $(this).prop('checked', true);
+                $(this).next().find('i').css('opacity', 1)
+            }
+        })
+
+    })
+</script>
+</body>
+</html>

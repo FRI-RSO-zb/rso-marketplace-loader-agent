@@ -7,14 +7,12 @@ import org.jsoup.nodes.Document;
 import java.io.IOException;
 
 public class OglasiSiLoader extends LoaderBase<Object> {
-    public OglasiSiLoader() {
-        super("https://oglasi.si/");
+    public OglasiSiLoader(boolean useInternalResources) {
+        super("https://oglasi.si/", useInternalResources);
     }
 
     public LoadingResult loadLatestCarAds() throws IOException {
-        Document result = this.loadDocumentFromUrl("avtomobili");
-
-        System.out.println(result.html());
+        Document result = this.loadDocumentFromUrl("avtomobili", "samples/oglasi-si-avtomobili_2.html");
 
         return new LoadingResult(true, result.html());
     }

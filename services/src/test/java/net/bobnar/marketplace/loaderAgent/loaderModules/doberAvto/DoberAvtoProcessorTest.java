@@ -8,6 +8,7 @@ import net.bobnar.marketplace.loaderAgent.services.processor.ProcessListResult;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,8 +19,8 @@ class DoberAvtoProcessorTest extends TestBase {
 //    }
 
     @Test
-    void processItemList() throws FileNotFoundException {
-        String data = this.loadTestResource("doberavto-latest.json");
+    void processItemList() throws IOException {
+        String data = this.loadTestResource("samples/doberavto-latest.json");
 
         ProcessListResult<DoberAvtoListItem> result = new DoberAvtoProcessor().processItemList(data);
 
@@ -34,8 +35,8 @@ class DoberAvtoProcessorTest extends TestBase {
     }
 
     @Test
-    void processListItem() throws FileNotFoundException {
-        String data = this.loadTestResource("doberavto-latest-single-item.json");
+    void processListItem() throws IOException {
+        String data = this.loadTestResource("samples/doberavto-latest-single-item.json");
 
         ProcessItemResult<DoberAvtoListItem> result = new DoberAvtoProcessor().processListItem(data);
 

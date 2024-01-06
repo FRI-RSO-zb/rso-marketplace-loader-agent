@@ -15,14 +15,6 @@
   <description>Internal services that marketplace loader agent uses.</description>
 
   <dependencies>
-<!--    <dependency>-->
-<!--      <groupId>com.kumuluz.ee</groupId>-->
-<!--      <artifactId>kumuluzee-core</artifactId>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--      <groupId>com.kumuluz.ee</groupId>-->
-<!--      <artifactId>kumuluzee-servlet-jetty</artifactId>-->
-<!--    </dependency>-->
     <dependency>
       <groupId>com.kumuluz.ee</groupId>
       <artifactId>kumuluzee-jax-rs-jersey</artifactId>
@@ -32,61 +24,16 @@
       <artifactId>kumuluzee-cdi-weld</artifactId>
     </dependency>
 
-<!--    &lt;!&ndash; Service framework dependencies &ndash;&gt;-->
-<!--    <dependency>-->
-<!--      <groupId>com.kumuluz.ee.config</groupId>-->
-<!--      <artifactId>kumuluzee-config-mp</artifactId>-->
-<!--    </dependency>-->
+    <!-- Service framework dependencies -->
     <dependency>
       <groupId>com.kumuluz.ee.rest</groupId>
       <artifactId>kumuluzee-rest-core</artifactId>
     </dependency>
 
-
-    <!-- OpenApi -->
-<!--    <dependency>-->
-<!--      <groupId>com.kumuluz.ee.openapi</groupId>-->
-<!--      <artifactId>kumuluzee-openapi-mp</artifactId>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--      <groupId>com.kumuluz.ee.openapi</groupId>-->
-<!--      <artifactId>kumuluzee-openapi-mp-ui</artifactId>-->
-<!--    </dependency>-->
-
-    <!-- Authentication & Authorization -->
-<!--    <dependency>-->
-<!--      <groupId>com.kumuluz.ee.security</groupId>-->
-<!--      <artifactId>kumuluzee-security-keycloak</artifactId>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--      <groupId>org.keycloak</groupId>-->
-<!--      <artifactId>keycloak-jetty94-adapter</artifactId>-->
-<!--    </dependency>-->
-
-    <!-- Data Persistence -->
-<!--    <dependency>-->
-<!--      <groupId>org.postgresql</groupId>-->
-<!--      <artifactId>postgresql</artifactId>-->
-<!--    </dependency>-->
-<!--        <dependency>-->
-<!--          <groupId>com.kumuluz.ee</groupId>-->
-<!--          <artifactId>kumuluzee-jpa-eclipselink</artifactId>-->
-<!--        </dependency>-->
-
-
-    <!-- Logging & Health -->
-<!--    <dependency>-->
-<!--      <groupId>com.kumuluz.ee.health</groupId>-->
-<!--      <artifactId>kumuluzee-health</artifactId>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--      <groupId>com.kumuluz.ee.metrics</groupId>-->
-<!--      <artifactId>kumuluzee-metrics-core</artifactId>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--      <artifactId>kumuluzee-logs-log4j2</artifactId>-->
-<!--      <groupId>com.kumuluz.ee.logs</groupId>-->
-<!--    </dependency>-->
+      <dependency>
+          <groupId>com.kumuluz.ee.grpc</groupId>
+          <artifactId>kumuluzee-grpc</artifactId>
+      </dependency>
 
 
       <dependency>
@@ -94,26 +41,6 @@
           <artifactId>marketplace-common</artifactId>
       </dependency>
 
-
-
-<!--    CORS does not work properly in this setup!   -->
-<!--    <dependency>-->
-<!--      <groupId>com.kumuluz.ee.cors</groupId>-->
-<!--      <artifactId>kumuluzee-cors</artifactId>-->
-<!--    </dependency>-->
-
-
-<!--    <dependency>-->
-<!--      <groupId>javax</groupId>-->
-<!--      <artifactId>javaee-web-api</artifactId>-->
-<!--      <version>6.0</version>-->
-<!--      <scope>provided</scope>-->
-<!--    </dependency>-->
-
-<!--    <dependency>-->
-<!--      <groupId>jakarta.ws.rs</groupId>-->
-<!--      <artifactId>jakarta.ws.rs-api</artifactId>-->
-<!--    </dependency>-->
 
 
       <dependency>
@@ -134,42 +61,4 @@
 
   </dependencies>
 
-
-<!--  <build>-->
-<!--    <finalName>${project.artifactId}</finalName>-->
-
-<!--    <plugins>-->
-<!--      <plugin>-->
-<!--        <groupId>com.kumuluz.ee</groupId>-->
-<!--        <artifactId>kumuluzee-maven-plugin</artifactId>-->
-<!--        <version>${kumuluzee.version}</version>-->
-<!--        <executions>-->
-<!--          <execution>-->
-<!--            <id>package</id>-->
-<!--            <goals>-->
-<!--              <goal>repackage</goal>-->
-<!--            </goals>-->
-<!--          </execution>-->
-<!--        </executions>-->
-<!--      </plugin>-->
-
-<!--      <plugin>-->
-<!--        <groupId>org.apache.maven.plugins</groupId>-->
-<!--        <artifactId>maven-resources-plugin</artifactId>-->
-<!--        <version>2.7</version>-->
-<!--      </plugin>-->
-<!--    </plugins>-->
-
-<!--    <resources>-->
-<!--        <resource>-->
-<!--          <directory>src/main/resources</directory>-->
-<!--          <filtering>true</filtering>-->
-<!--          <includes>-->
-<!--            <include>**/*.properties</include>-->
-<!--            <include>**/*.xml</include>-->
-<!--            <include>**/*.yaml</include>-->
-<!--          </includes>-->
-<!--        </resource>-->
-<!--    </resources>-->
-<!--  </build>-->
 </project>

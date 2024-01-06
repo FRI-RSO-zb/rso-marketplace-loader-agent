@@ -68,10 +68,10 @@
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
     </dependency>
-        <dependency>
-          <groupId>com.kumuluz.ee</groupId>
-          <artifactId>kumuluzee-jpa-eclipselink</artifactId>
-        </dependency>
+    <dependency>
+      <groupId>com.kumuluz.ee</groupId>
+      <artifactId>kumuluzee-jpa-eclipselink</artifactId>
+    </dependency>
 
 
     <!-- Logging & Health -->
@@ -88,35 +88,27 @@
       <groupId>com.kumuluz.ee.logs</groupId>
     </dependency>
 
-    <dependency>
-        <groupId>net.bobnar.marketplace.common</groupId>
-        <artifactId>marketplace-common</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>net.bobnar.marketplace</groupId>
-      <artifactId>marketplace-loader-agent-services</artifactId>
-    </dependency>
-
-
-
     <!--    CORS does not work properly in this setup!   -->
     <dependency>
       <groupId>com.kumuluz.ee.cors</groupId>
       <artifactId>kumuluzee-cors</artifactId>
     </dependency>
 
+    <dependency>
+      <groupId>com.kumuluz.ee.grpc</groupId>
+      <artifactId>kumuluzee-grpc</artifactId>
+    </dependency>
 
-<!--    <dependency>-->
-<!--      <groupId>javax</groupId>-->
-<!--      <artifactId>javaee-web-api</artifactId>-->
-<!--      <version>6.0</version>-->
-<!--      <scope>provided</scope>-->
-<!--    </dependency>-->
 
-<!--    <dependency>-->
-<!--      <groupId>jakarta.ws.rs</groupId>-->
-<!--      <artifactId>jakarta.ws.rs-api</artifactId>-->
-<!--    </dependency>-->
+
+    <dependency>
+      <groupId>net.bobnar.marketplace.common</groupId>
+      <artifactId>marketplace-common</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>net.bobnar.marketplace</groupId>
+      <artifactId>marketplace-loader-agent-services</artifactId>
+    </dependency>
 
 
   </dependencies>

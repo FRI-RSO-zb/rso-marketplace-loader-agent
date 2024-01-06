@@ -9,15 +9,12 @@ import java.io.IOException;
 
 @RequestScoped
 public class AvtoNetLoader extends LoaderBase<Object> {
-    public AvtoNetLoader() {
-        super("https://www.avto.net/");
+    public AvtoNetLoader(boolean useInternalResources) {
+        super("https://www.avto.net/", useInternalResources);
     }
 
     public LoadingResult loadAvtonetTop100List() throws IOException {
-        Document result = this.loadDocumentFromUrl("Ads/results_100.asp?oglasrubrika=1&prodajalec=2");
-
-        // TODO:
-        System.out.println(result.html());
+        Document result = this.loadDocumentFromUrl("Ads/results_100.asp?oglasrubrika=1&prodajalec=2", "samples/avtonet-top100-list_2.html");
 
         return new LoadingResult(true, result.html());
     }

@@ -13,7 +13,7 @@ class SalomonProcessorTest extends TestBase {
 
     @Test
     void processItemList() throws Exception {
-        String data = this.loadTestResource("salomon-avtomobili.html");
+        String data = this.loadTestResource("samples/salomon-avtomobili.html");
 
         ProcessListResult<SalomonListItem> result = new SalomonProcessor().processItemList(data);
 
@@ -28,7 +28,7 @@ class SalomonProcessorTest extends TestBase {
 
     @Test
     void processListItem() throws Exception {
-        String data = this.loadTestResource("salomon-avtomobili-row.html");
+        String data = this.loadTestResource("samples/salomon-avtomobili-row.html");
 
         ProcessItemResult<SalomonListItem> result = new SalomonProcessor().processListItem(data);
 

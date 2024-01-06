@@ -25,7 +25,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!-- Dependencies versions -->
-    <marketplace-common.version>1.1.0</marketplace-common.version>
+    <marketplace-common.version>1.2.0</marketplace-common.version>
 
     <kumuluzee.version>4.1.0</kumuluzee.version>
     <kumuluzee-rest.version>2.0.1</kumuluzee-rest.version>
@@ -41,6 +41,7 @@
     <kumuluzee-security.version>1.2.0</kumuluzee-security.version>
     <keycloak.version>5.0.0</keycloak.version>
     <kumuluzee-cdi-weld.version>4.1.0</kumuluzee-cdi-weld.version>
+    <kumuluz-grpc.version>1.1.0</kumuluz-grpc.version>
   </properties>
 
 
@@ -173,6 +174,12 @@
         <artifactId>kumuluzee-logs-log4j2</artifactId>
         <groupId>com.kumuluz.ee.logs</groupId>
         <version>${kumuluzee-logs.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.kumuluz.ee.grpc</groupId>
+        <artifactId>kumuluzee-grpc</artifactId>
+        <version>${kumuluz-grpc.version}</version>
       </dependency>
 
 

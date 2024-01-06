@@ -13,7 +13,7 @@ class OglasiSiProcessorTest extends TestBase {
 
     @Test
     void processItemList() throws Exception {
-        String data = this.loadTestResource("oglasi-si-avtomobili.html");
+        String data = this.loadTestResource("samples/oglasi-si-avtomobili.html");
 
         ProcessListResult<OglasiSiListItem> result = new OglasiSiProcessor().processItemList(data);
 
@@ -28,7 +28,7 @@ class OglasiSiProcessorTest extends TestBase {
 
     @Test
     void processListItem() throws Exception{
-        String data = this.loadTestResource("oglasi-si-avtomobili-row.html");
+        String data = this.loadTestResource("samples/oglasi-si-avtomobili-row.html");
 
         ProcessItemResult<OglasiSiListItem> result = new OglasiSiProcessor().processListItem(data);
 

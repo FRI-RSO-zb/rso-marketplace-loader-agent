@@ -8,14 +8,15 @@ import net.bobnar.marketplace.loaderAgent.services.processor.ProcessListResult;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class BolhaProcessorTest extends TestBase {
 
     @Test
-    void processList() throws FileNotFoundException {
-        String data = this.loadTestResource("bolha-avto-oglasi.html");
+    void processList() throws IOException {
+        String data = this.loadTestResource("samples/bolha-avto-oglasi.html");
 
         ProcessListResult<BolhaListItem> result = new BolhaProcessor().processItemList(data);
 
@@ -41,7 +42,7 @@ class BolhaProcessorTest extends TestBase {
 
     @Test
     void  processListItem() throws Exception {
-        String data = this.loadTestResource("bolha-avto-oglasi-row.html");
+        String data = this.loadTestResource("samples/bolha-avto-oglasi-row.html");
 
         ProcessItemResult<BolhaListItem> result = new BolhaProcessor().processListItem(data);
 

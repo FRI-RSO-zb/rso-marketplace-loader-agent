@@ -31,12 +31,12 @@ import java.util.List;
 
 
 @Log
-@Path("parsers")
-@Tag(name="Parsers", description = "Endpoints for triggering parsing of obtained raw data")
+@Path("processors")
+@Tag(name="Processors", description = "Endpoints for triggering processing of obtained raw data")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 @CrossOrigin(supportedMethods =  "GET, POST, HEAD, OPTIONS, PUT, DELETE", allowOrigin = "*")
-public class ParsersController {
+public class ProcessorsController {
     private static final String AVTONET = "avtonet";
     private static final String BOLHA = "bolha";
     private static final String DOBERAVTO = "doberavto";

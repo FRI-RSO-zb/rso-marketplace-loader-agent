@@ -8,14 +8,15 @@ import net.bobnar.marketplace.loaderAgent.services.processor.ProcessListResult;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class AvtoNetProcessorTest extends TestBase {
 
     @Test
-    void processTop100List() throws FileNotFoundException {
-        String data = this.loadTestResource("avtonet-top100-list.html");
+    void processTop100List() throws IOException {
+        String data = this.loadTestResource("samples/avtonet-top100-list.html");
 
         ProcessListResult<AvtoNetListItem> result = new AvtoNetProcessor().processItemList(data);
 
@@ -40,7 +41,7 @@ class AvtoNetProcessorTest extends TestBase {
 
     @Test
     void  processListItem() throws Exception {
-        String data = this.loadTestResource("avtonet-top100-list-row.html");
+        String data = this.loadTestResource("samples/avtonet-top100-list-row.html");
 
         ProcessItemResult<AvtoNetListItem> result = new AvtoNetProcessor().processListItem(data);
 

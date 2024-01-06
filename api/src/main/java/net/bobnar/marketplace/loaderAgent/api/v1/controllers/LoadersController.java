@@ -3,6 +3,7 @@ package net.bobnar.marketplace.loaderAgent.api.v1.controllers;
 import com.kumuluz.ee.cors.annotations.CrossOrigin;
 import com.kumuluz.ee.logs.cdi.Log;
 import net.bobnar.marketplace.common.dtos.loaderAgent.v1.loaders.LoadingResult;
+import net.bobnar.marketplace.loaderAgent.services.config.ServiceConfig;
 import net.bobnar.marketplace.loaderAgent.services.loaderModules.avtonet.AvtoNetLoader;
 import net.bobnar.marketplace.loaderAgent.services.loaderModules.bolha.BolhaLoader;
 import net.bobnar.marketplace.loaderAgent.services.loaderModules.doberAvto.DoberAvtoLoader;
@@ -21,6 +22,7 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -36,6 +38,7 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 @CrossOrigin(supportedMethods =  "GET, POST, HEAD, OPTIONS, PUT, DELETE", allowOrigin = "*")
+@RequestScoped
 public class LoadersController {
     private static final String AVTONET = "avtonet";
     private static final String BOLHA = "bolha";
@@ -48,6 +51,9 @@ public class LoadersController {
     @Inject
     @Metric(name="loading_meter")
     private Meter loadingMeter;
+
+    @Inject
+    private ServiceConfig serviceConfig;
 
 //    @GET
 //    @Path("jobs")
@@ -140,23 +146,28 @@ public class LoadersController {
 
         LoadingResult result = switch (loader) {
             case AVTONET -> switch (page) {
-                case LATEST_PAGE -> new AvtoNetLoader().loadAvtonetTop100List();
+                case LATEST_PAGE -> new AvtoNetLoader(serviceConfig.shouldUseInternalResources())
+                        .loadAvtonetTop100List();
                 default -> null;
             };
             case BOLHA -> switch (page) {
-                case LATEST_PAGE -> new BolhaLoader().loadLatestCarAds();
+                case LATEST_PAGE -> new BolhaLoader(serviceConfig.shouldUseInternalResources())
+                        .loadLatestCarAds();
                 default -> null;
             };
             case DOBERAVTO -> switch (page) {
-                case LATEST_PAGE -> new DoberAvtoLoader().loadLatestCarAds();
+                case LATEST_PAGE -> new DoberAvtoLoader(serviceConfig.shouldUseInternalResources())
+                        .loadLatestCarAds();
                 default -> null;
             };
             case SALOMON -> switch (page) {
-                case LATEST_PAGE -> new SalomonLoader().loadLatestCarAds();
+                case LATEST_PAGE -> new SalomonLoader(serviceConfig.shouldUseInternalResources())
+                        .loadLatestCarAds();
                 default -> null;
             };
             case OGLASISI -> switch (page) {
-                case LATEST_PAGE -> new OglasiSiLoader().loadLatestCarAds();
+                case LATEST_PAGE -> new OglasiSiLoader(serviceConfig.shouldUseInternalResources())
+                        .loadLatestCarAds();
                 default -> null;
             };
             default -> null;

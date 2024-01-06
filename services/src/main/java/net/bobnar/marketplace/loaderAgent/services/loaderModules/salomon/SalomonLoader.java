@@ -7,14 +7,12 @@ import org.jsoup.nodes.Document;
 import java.io.IOException;
 
 public class SalomonLoader extends LoaderBase<Object> {
-    public SalomonLoader() {
-        super("http://oglasi.svet24.si/");
+    public SalomonLoader(boolean useInternalResources) {
+        super("http://oglasi.svet24.si/", useInternalResources);
     }
 
     public LoadingResult loadLatestCarAds() throws IOException {
-        Document result = this.loadDocumentFromUrl("oglasi/motorna-vozila/avtomobili");
-
-        System.out.println(result.html());
+        Document result = this.loadDocumentFromUrl("oglasi/motorna-vozila/avtomobili", "samples/salomon-avtomobili_2.html");
 
         return new LoadingResult(true, result.html());
     }
