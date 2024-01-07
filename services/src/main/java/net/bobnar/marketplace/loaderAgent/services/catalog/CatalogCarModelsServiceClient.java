@@ -3,6 +3,8 @@ package net.bobnar.marketplace.loaderAgent.services.catalog;
 import com.kumuluz.ee.grpc.client.GrpcClient;
 import com.kumuluz.ee.grpc.client.GrpcChannelConfig;
 import com.kumuluz.ee.grpc.client.GrpcChannels;
+import net.bobnar.marketplace.common.dtos.catalog.v1.carBrands.CarBrand;
+import net.bobnar.marketplace.common.dtos.catalog.v1.carModels.CarModel;
 import net.bobnar.marketplace.common.grpc.catalog.CarModelsGrpc;
 import net.bobnar.marketplace.common.grpc.catalog.CarModelsService;
 import org.parboiled.common.Tuple2;
@@ -30,6 +32,47 @@ public class CatalogCarModelsServiceClient {
         } catch (SSLException e) {
 //            logger.warning(e.getMessage());
         }
+    }
+
+    public CarBrand resolveBrand(String brandName, String title) {
+        CarModelsService.BrandResolveResponse response = stub.resolveBrand(CarModelsService.BrandResolveRequest.newBuilder()
+                .setBrand(brandName != null ? brandName : "")
+                .setTitle(title != null ? title : "")
+                .build());
+
+        if (response.hasResolvedBrand()) {
+            CarModelsService.CarBrand item = response.getResolvedBrand();
+            return new CarBrand(
+                    item.getId(),
+                    item.getName(),
+                    item.getPrimaryIdentifier(),
+                    String.join(",", item.getIdentifiersList()),
+                    0L
+            );
+        }
+
+        return null;
+    }
+
+    public CarModel resolveModel(String brandPrimaryIdentifier, String modelName, String title) {
+        CarModelsService.ModelResolveResponse response = stub.resolveModel(CarModelsService.ModelResolveRequest.newBuilder()
+                .setBrandPrimaryIdentifier(brandPrimaryIdentifier != null ? brandPrimaryIdentifier : "")
+                .setModel(modelName != null ? modelName : "")
+                .setTitle(title != null ? title : "")
+                .build());
+
+        if (response.hasResolvedModel()) {
+            CarModelsService.CarModel item = response.getResolvedModel();
+            return new CarModel(
+                    item.getId(),
+                    item.getName(),
+                    item.getBrandId(),
+                    item.getPrimaryIdentifier(),
+                    String.join(",", item.getIdentifiersList())
+            );
+        }
+
+        return null;
     }
 
 

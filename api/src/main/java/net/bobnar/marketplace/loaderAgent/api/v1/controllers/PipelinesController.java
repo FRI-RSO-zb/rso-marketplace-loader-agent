@@ -1,24 +1,37 @@
 package net.bobnar.marketplace.loaderAgent.api.v1.controllers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kumuluz.ee.cors.annotations.CrossOrigin;
 import com.kumuluz.ee.logs.cdi.Log;
+import net.bobnar.marketplace.common.controllers.ControllerBase;
 import net.bobnar.marketplace.common.dtos.catalog.v1.ads.Ad;
+import net.bobnar.marketplace.common.dtos.catalog.v1.carBrands.CarBrand;
+import net.bobnar.marketplace.common.dtos.catalog.v1.carModels.CarModel;
 import net.bobnar.marketplace.common.dtos.loaderAgent.v1.loaders.LoadingResult;
 import net.bobnar.marketplace.common.dtos.loaderAgent.v1.pipelines.ItemToExport;
 import net.bobnar.marketplace.common.dtos.loaderAgent.v1.pipelines.ItemsToExport;
-import net.bobnar.marketplace.common.dtos.loaderAgent.v1.processors.ProcessingResult;
+import net.bobnar.marketplace.loaderAgent.services.LoaderHelper;
+import net.bobnar.marketplace.loaderAgent.services.ProcessorHelper;
+import net.bobnar.marketplace.loaderAgent.services.catalog.AdsService;
+import net.bobnar.marketplace.loaderAgent.services.catalog.BrandsService;
 import net.bobnar.marketplace.loaderAgent.services.catalog.CatalogCarModelsServiceClient;
 import net.bobnar.marketplace.loaderAgent.services.config.ServiceConfig;
+import net.bobnar.marketplace.loaderAgent.services.loaderModules.avtonet.AvtoNetListItem;
+import net.bobnar.marketplace.loaderAgent.services.loaderModules.avtonet.AvtoNetLoader;
 import net.bobnar.marketplace.loaderAgent.services.loaderModules.avtonet.AvtoNetProcessor;
+import net.bobnar.marketplace.loaderAgent.services.loaderModules.bolha.BolhaListItem;
+import net.bobnar.marketplace.loaderAgent.services.loaderModules.bolha.BolhaLoader;
 import net.bobnar.marketplace.loaderAgent.services.loaderModules.bolha.BolhaProcessor;
 import net.bobnar.marketplace.loaderAgent.services.loaderModules.doberAvto.DoberAvtoListItem;
 import net.bobnar.marketplace.loaderAgent.services.loaderModules.doberAvto.DoberAvtoLoader;
 import net.bobnar.marketplace.loaderAgent.services.loaderModules.doberAvto.DoberAvtoProcessor;
+import net.bobnar.marketplace.loaderAgent.services.loaderModules.oglasiSi.OglasiSiListItem;
+import net.bobnar.marketplace.loaderAgent.services.loaderModules.oglasiSi.OglasiSiLoader;
 import net.bobnar.marketplace.loaderAgent.services.loaderModules.oglasiSi.OglasiSiProcessor;
+import net.bobnar.marketplace.loaderAgent.services.loaderModules.salomon.SalomonListItem;
+import net.bobnar.marketplace.loaderAgent.services.loaderModules.salomon.SalomonLoader;
 import net.bobnar.marketplace.loaderAgent.services.loaderModules.salomon.SalomonProcessor;
+import net.bobnar.marketplace.loaderAgent.services.processor.IProcessedAdBriefData;
 import net.bobnar.marketplace.loaderAgent.services.processor.ProcessListResult;
 import org.eclipse.microprofile.metrics.annotation.Metered;
 import org.eclipse.microprofile.metrics.annotation.Timed;
@@ -31,6 +44,7 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.parboiled.common.Tuple2;
+import org.parboiled.common.Tuple3;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -46,8 +60,6 @@ import java.net.http.HttpResponse;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeoutException;
 import java.util.stream.Collectors;
 
 
@@ -58,7 +70,7 @@ import java.util.stream.Collectors;
 @Consumes(MediaType.APPLICATION_JSON)
 @CrossOrigin(supportedMethods =  "GET, POST, HEAD, OPTIONS, PUT, DELETE", allowOrigin = "*")
 @RequestScoped
-public class PipelinesController {
+public class PipelinesController extends ControllerBase {
 
 
 //    @Inject
@@ -70,6 +82,12 @@ public class PipelinesController {
 
     @Inject
     private CatalogCarModelsServiceClient carModelsClient;
+
+    @Inject
+    private BrandsService brandsService;
+
+    @Inject
+    private AdsService adsService;
 
     @POST
     @Path("/export/site/{site}/to/catalog")
@@ -97,141 +115,131 @@ public class PipelinesController {
     public Response process(
             @PathParam("site") @Parameter(description = "The site name", example = "doberavto", required = true) String site
     ) {
-        HashMap<String, Object> result = new HashMap<String, Object>();
+        HashMap<String, Object> result = new HashMap<>();
 
-        if ("doberavto".equals(site)) {
-            DoberAvtoLoader loader = new DoberAvtoLoader(serviceConfig.shouldUseInternalResources());
-            LoadingResult latestList;
-            try {
-                latestList = loader.loadLatestCarAds();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+        result.put("source", site);
+        result.put("shouldUseInternalResource", serviceConfig.shouldUseInternalResources());
 
-            DoberAvtoProcessor processor = new DoberAvtoProcessor();
-            ProcessListResult<DoberAvtoListItem> processedList = processor.processItemList(latestList.content());
-            result.put("processedList", processedList);
+        LoadingResult loadingResult = LoaderHelper.loadLatestListFromSource(site, serviceConfig.shouldUseInternalResources());
+        if (loadingResult == null) {
+            return respondNotFound();
+        }
 
-            var dataForResolving = new HashMap<String, Object>();
-            var identifiers = processedList.processedItems.stream().map(v -> v.getManufacturer().toLowerCase().replace(' ', '-') + " " + v.getTitle().split(" ")[0].toLowerCase()).collect(Collectors.toList());
-            dataForResolving.put("identifiers",  identifiers);
+        ProcessListResult<IProcessedAdBriefData> processingResult = ProcessorHelper.processFromSource(site, loadingResult.content());
+        if (processingResult == null) {
+            return respondNotFound();
+        }
+        result.put("processingResult", processingResult.toDto());
 
-            var brandAndModelIds = carModelsClient.findMultipleModelsByIdentifiers(
-                    processedList.processedItems.stream().map(v -> new Tuple2<>(
-                            v.getManufacturer().toLowerCase().replace(' ', '-'),
-                            v.getTitle().split(" ")[0].toLowerCase()
-                    )).toList()
-            );
-
-            result.put("resolvedModels", brandAndModelIds);
-            result.put("dataforresolving", dataForResolving);
-
-            List<String> unresolvedBrands = new ArrayList<>();
-            List<String> unresolvedModels = new ArrayList<>();
-            List<Integer> resolvedIndexes = new ArrayList<>();
-            for (int i = 0; i < brandAndModelIds.size(); i++) {
-                if (brandAndModelIds.get(i).a == null || brandAndModelIds.get(i).a == 0) {
-                    unresolvedBrands.add(identifiers.get(i));
-                } else if (brandAndModelIds.get(i).b == null || brandAndModelIds.get(i).b == 0) {
-                    unresolvedModels.add(identifiers.get(i));
-                } else {
-                    resolvedIndexes.add(i);
-                }
-            }
-
-            result.put("unresolvedBrands", unresolvedBrands);
-            result.put("unresolvedModels", unresolvedModels);
-            result.put("resolvedIndexes", resolvedIndexes);
+        List<IProcessedAdBriefData> processedItems = processingResult.processedItems;
 
 
-            List<String> resolvedSourceIds=new ArrayList<>();
-            for (var i : resolvedIndexes) {
-                resolvedSourceIds.add(processedList.processedItems.get(i).getId());
-            }
+        List<String> allAdIds = processedItems.stream().map(IProcessedAdBriefData::getId).toList();
+        Ad[] existingAds = adsService.getAdsWithSourceIds(site, allAdIds);
+        result.put("existingAds", existingAds);
 
-            Ad[] existingAds = new Ad[0];
-            try {
-                HttpClient client = HttpClient.newHttpClient();
-                String url = "http://localhost:8801/v1/ads?sources=doberavto&" + String.join("&", resolvedSourceIds.stream().map(x -> "sourceIds=" + x).toList());
-                HttpRequest request = HttpRequest.newBuilder()
-                        .uri(new URI(url))
-                        .timeout(Duration.of(2, ChronoUnit.SECONDS))
-                        .GET()
-                        .build();
 
-                HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        List<IProcessedAdBriefData> missingAds = processedItems.stream()
+                .filter(x-> Arrays.stream(existingAds)
+                        .noneMatch(y-> Objects.equals(y.getSourceId(), x.getId())))
+                .toList();
+        result.put("missingAds", missingAds);
 
-                if (response.statusCode() != 200) {
-                    throw new RuntimeException("Status not 200: " + response.statusCode() + ". " + response.body());
-                }
 
-                ObjectMapper mapper = new ObjectMapper();
-                existingAds = mapper.readValue(response.body(), Ad[].class);
-            } catch (URISyntaxException e) {
-                throw new RuntimeException(e);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            result.put("existingAds", existingAds);
-
-            List<Ad> newAds = new ArrayList<>();
-            for (var i : resolvedIndexes) {
-                var brandId = brandAndModelIds.get(i).a;
-                var modelId = brandAndModelIds.get(i).b;
-                var item = processedList.processedItems.get(i);
-                var source = "doberavto";
-                var sourceId = item.getId();
-
-                if (Arrays.stream(existingAds).toList().stream().anyMatch(v -> Objects.equals(v.getSourceId(), sourceId))) {
+        List<CarBrand> resolvedBrands = new ArrayList<>();
+        List<String> resolvedBrandsAdIds = new ArrayList<>();
+        List<String> notResolvedBrands = new ArrayList<>();
+        List<String> notResolvedBrandsAdIds = new ArrayList<>();
+        for (IProcessedAdBriefData item : missingAds) {
+            if (item.getBrand() != null && !item.getBrand().isEmpty()) {
+                Optional<CarBrand> resolvedBrand = resolvedBrands.stream()
+                        .filter(x-> Objects.equals(x.getPrimaryIdentifier(), item.getBrand()))
+                        .findFirst();
+                if (resolvedBrand.isPresent()) {
+                    item.setBrand(resolvedBrand.get().getPrimaryIdentifier());
                     continue;
                 }
-
-                var newAd = new Ad();
-                newAd.setTitle(item.getTitle());
-                newAd.setSource(source);
-                newAd.setSourceId(sourceId);
-                newAd.setModelId(modelId);
-                newAd.setPhotoUri(item.getPhotoPath());
-
-                newAds.add(newAd);
             }
-            result.put("newAds", newAds);
 
-
-
-            Ad[] createdAds = new Ad[0];
-            try {
-                HttpClient client = HttpClient.newHttpClient();
-                ObjectMapper mapper = new ObjectMapper();
-                String data = mapper.writeValueAsString(newAds);
-                String url = "http://localhost:8801/v1/ads";
-                HttpRequest request = HttpRequest.newBuilder()
-                        .uri(new URI(url))
-                        .timeout(Duration.of(2, ChronoUnit.SECONDS))
-                        .header("Content-Type", "application/json")
-                        .POST(HttpRequest.BodyPublishers.ofString(data))
-                        .build();
-
-                HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
-                if (response.statusCode() != 201) {
-                    throw new RuntimeException("Status not 200: " + response.statusCode() + ". " + response.body());
-                }
-
-//                ObjectMapper mapper = new ObjectMapper();
-                createdAds = mapper.readValue(response.body(), Ad[].class);
-            } catch (URISyntaxException e) {
-                throw new RuntimeException(e);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+            CarBrand resolved = carModelsClient.resolveBrand(item.getBrand(), item.getTitle());
+            if (resolved == null) {
+                notResolvedBrands.add(item.getBrand() + " - " + item.getTitle());
+                notResolvedBrandsAdIds.add(item.getId());
+                continue;
             }
-            result.put("createdAds", createdAds);
 
+            item.setBrand(resolved.getPrimaryIdentifier());
+            resolvedBrandsAdIds.add(item.getId());
+
+            if (resolvedBrands.stream().noneMatch(x-> Objects.equals(x.getId(), resolved.getId()))) {
+                resolvedBrands.add(resolved);
+            }
         }
+
+        result.put("resolvedBrands", resolvedBrands);
+        result.put("resolvedBrandsAdIds", resolvedBrandsAdIds);
+        result.put("notResolvedBrands", notResolvedBrands);
+        result.put("notResolvedBrandsAdIds", notResolvedBrandsAdIds);
+
+
+        List<CarModel> resolvedModels = new ArrayList<>();
+        List<String> resolvedModelAdIds = new ArrayList<>();
+        List<String> notResolvedModels = new ArrayList<>();
+        List<String> notResolvedModelsAdIds = new ArrayList<>();
+        for (IProcessedAdBriefData item : missingAds.stream().filter(x->resolvedBrandsAdIds.contains(x.getId())).toList()) {
+            if (item.getModel() != null && !item.getModel().isEmpty()) {
+                Optional<CarModel> resolvedModel = resolvedModels.stream().filter(x-> Objects.equals(x.getPrimaryIdentifier(), item.getModel())).findFirst();
+                if (resolvedModel.isPresent()) {
+                    item.setModel(resolvedModel.get().getPrimaryIdentifier());
+                    continue;
+                }
+            }
+
+            CarModel resolved = carModelsClient.resolveModel(item.getBrand(), item.getModel(), item.getTitle());
+            if (resolved == null) {
+                notResolvedModels.add(item.getBrand() + " - " + item.getModel() + " - " + item.getTitle());
+                notResolvedModelsAdIds.add(item.getId());
+                continue;
+            }
+
+            item.setModel(resolved.getPrimaryIdentifier());
+            resolvedModelAdIds.add(item.getId());
+
+            if (resolvedModels.stream().noneMatch(x-> Objects.equals(x.getId(), resolved.getId()))) {
+                resolvedModels.add(resolved);
+            }
+        }
+
+        result.put("resolvedModels", resolvedModels);
+        result.put("resolvedModelAdIds", resolvedModelAdIds);
+        result.put("notResolvedModels", notResolvedModels);
+        result.put("notResolvedModelsAdIds", notResolvedModelsAdIds);
+
+
+
+        List<Ad> adsToCreate = new ArrayList<>();
+        for (String adId : resolvedModelAdIds) {
+            IProcessedAdBriefData ad = missingAds.stream().filter(x-> x.getId().equals(adId)).findFirst().get();
+            CarModel model = resolvedModels.stream().filter(x-> x.getPrimaryIdentifier().equals(ad.getModel())).findFirst().get();
+
+            Ad newAd = new Ad();
+            newAd.setTitle(ad.getTitle());
+            newAd.setSource(site);
+            newAd.setSourceId(ad.getId());
+            newAd.setModelId(model.getId());
+            newAd.setPhotoUri(ad.getPhotoUrl());
+            newAd.setOtherData(ad.getOtherData());
+
+            adsToCreate.add(newAd);
+        }
+        result.put("adsToCreate", adsToCreate);
+
+
+        if (!adsToCreate.isEmpty()) {
+            Ad[] createdAds = adsService.createAds(adsToCreate.toArray(new Ad[0]));
+            result.put("createdAds", createdAds);
+        }
+
 
         return result != null ?
                 Response.ok(result).build() :

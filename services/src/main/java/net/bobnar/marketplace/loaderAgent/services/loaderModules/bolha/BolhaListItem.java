@@ -1,11 +1,16 @@
 package net.bobnar.marketplace.loaderAgent.services.loaderModules.bolha;
 
-public class BolhaListItem {
+import net.bobnar.marketplace.loaderAgent.services.processor.IProcessedAdBriefData;
+import org.json.JSONObject;
+
+public class BolhaListItem implements IProcessedAdBriefData {
     public boolean isExposed;
 
     public String title;
     public int id;
     public String url;
+    public String brand;
+    public String model;
 
     public String photoPath;
 
@@ -34,12 +39,58 @@ public class BolhaListItem {
         return title;
     }
 
+    @Override
+    public String getBrand() {
+        return brand;
+    }
+
+    @Override
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    @Override
+    public String getModel() {
+        return model;
+    }
+
+    @Override
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    @Override
+    public String getPhotoUrl() {
+        return photoPath;
+    }
+
+    @Override
+    public String getOtherData() {
+        JSONObject otherData = new JSONObject();
+
+        otherData.put("isExposed", isExposed);
+        otherData.put("age", getAge());
+        otherData.put("drivenDistanceKm", getDrivenDistanceKm());
+        otherData.put("manufacturingYear", getManufacturingYear());
+        otherData.put("location", getLocation());
+        otherData.put("isDealer", isDealer());
+        otherData.put("publishDate", getPublishDate());
+        otherData.put("price", getPrice());
+
+        return otherData.toString(2);
+    }
+
+    @Override
+    public IProcessedAdBriefData toInterface() {
+        return this;
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }
 
-    public int getId() {
-        return id;
+    public String getId() {
+        return String.valueOf(id);
     }
 
     public void setId(int id) {

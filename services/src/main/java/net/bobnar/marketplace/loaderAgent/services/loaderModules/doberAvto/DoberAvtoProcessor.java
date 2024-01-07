@@ -48,42 +48,42 @@ public class DoberAvtoProcessor extends ProcessorBase<Object, DoberAvtoListItem>
         result.success();
 
         result.item = new DoberAvtoListItem();
-        result.item.id = item.getString("postId");
-        result.item.title = item.getString("modelName");
-        result.item.manufacturer = item.getString("manufacturer");
-        result.item.photoPath = item.getString("imageUrl");
-        result.item.firstRegistrationDate = item.has("registrationDate") ? item.getString("registrationDate") : null;
-        result.item.age = "USED".equals(item.getString("historySource")) ? "Rabljeno" : item.getString("historySource");
-        result.item.drivenDistanceKm = item.has("odometer") ? item.getInt("odometer") : -1;
+        result.item.setId(item.getString("postId"));
+        result.item.setTitle(item.getString("modelName"));
+        result.item.setBrand(item.getString("manufacturer"));
+        result.item.setPhotoUrl(item.getString("imageUrl"));
+        result.item.setFirstRegistrationDate(item.has("registrationDate") ? item.getString("registrationDate") : null);
+        result.item.setAge("USED".equals(item.getString("historySource")) ? "Rabljeno" : item.getString("historySource"));
+        result.item.setDrivenDistanceKm(item.has("odometer") ? item.getInt("odometer") : -1);
         if ("A".equals(item.getString("transmission"))) {
-            result.item.transmissionType = "Avtomatski menjalnik";
+            result.item.setTransmissionType("Avtomatski menjalnik");
         } else if ("M".equals(item.getString("transmission"))) {
-            result.item.transmissionType = "Rocni menjalnik";
+            result.item.setTransmissionType("Rocni menjalnik");
         } else {
             result.addError("Unsupported transmission: " + item.getString("transmission"));
         }
-        result.item.enginePowerKW = item.getInt("enginePower");
-        result.item.engineDisplacementCcm = item.has("engineDisplacement") ? item.getInt("engineDisplacement") : -1;
-        result.item.totalOwners = item.has("owners") ? item.getInt("owners") : -1;
+        result.item.setEnginePowerKW(item.getInt("enginePower"));
+        result.item.setEngineDisplacementCcm(item.has("engineDisplacement") ? item.getInt("engineDisplacement") : -1);
+        result.item.setTotalOwners(item.has("owners") ? item.getInt("owners") : -1);
 
         switch (item.getString("fuelType")) {
             case "PETROL":
-                result.item.engineType = "Bencin";
+                result.item.setEngineType("Bencin");
                 break;
             case "DIESEL":
-                result.item.engineType = "Dizel";
+                result.item.setEngineType("Dizel");
                 break;
             case "HYBRID":
-                result.item.engineType = "Hibridni pogon";
+                result.item.setEngineType("Hibridni pogon");
                 break;
             case "ELECTRIC":
-                result.item.engineType = "Elektricni pogon";
+                result.item.setEngineType("Elektricni pogon");
                 break;
             default:
                 result.addError("Unsupported fuelType: " + item.getString("fuelType"));
         }
 
-        result.item.priceEur = item.getInt("price");
+        result.item.setPriceEur(item.getInt("price"));
 
         return result;
     }

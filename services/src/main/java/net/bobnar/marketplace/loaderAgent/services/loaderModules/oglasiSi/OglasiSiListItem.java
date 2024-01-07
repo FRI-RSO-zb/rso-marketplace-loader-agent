@@ -1,8 +1,13 @@
 package net.bobnar.marketplace.loaderAgent.services.loaderModules.oglasiSi;
 
-public class OglasiSiListItem {
+import net.bobnar.marketplace.loaderAgent.services.processor.IProcessedAdBriefData;
+import org.json.JSONObject;
+
+public class OglasiSiListItem implements IProcessedAdBriefData {
     public String id;
     public String url;
+    private String brand;
+    private String model;
     public String photoUrl;
 
     public String title;
@@ -11,6 +16,7 @@ public class OglasiSiListItem {
     public String location;
     public String lastUpdated;
 
+    @Override
     public String getId() {
         return id;
     }
@@ -27,16 +33,56 @@ public class OglasiSiListItem {
         this.url = url;
     }
 
+    @Override
     public String getPhotoUrl() {
         return photoUrl;
+    }
+
+    @Override
+    public String getOtherData() {
+        JSONObject otherData = new JSONObject();
+
+        otherData.put("url", getUrl());
+        otherData.put("price", getPrice());
+        otherData.put("sellerNotes", getSellerNotes());
+        otherData.put("location", getLocation());
+        otherData.put("lastUpdated", getLastUpdated());
+
+        return otherData.toString(2);
+    }
+
+    @Override
+    public IProcessedAdBriefData toInterface() {
+        return this;
     }
 
     public void setPhotoUrl(String photoUrl) {
         this.photoUrl = photoUrl;
     }
 
+    @Override
     public String getTitle() {
         return title;
+    }
+
+    @Override
+    public String getBrand() {
+        return brand;
+    }
+
+    @Override
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    @Override
+    public String getModel() {
+        return model;
+    }
+
+    @Override
+    public void setModel(String model) {
+        this.model = model;
     }
 
     public void setTitle(String title) {

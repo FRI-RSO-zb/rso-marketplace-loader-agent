@@ -1,11 +1,16 @@
 package net.bobnar.marketplace.loaderAgent.services.loaderModules.avtonet;
 
+import net.bobnar.marketplace.loaderAgent.services.processor.IProcessedAdBriefData;
+import org.json.JSONObject;
+
 import java.util.*;
 
-public class AvtoNetListItem {
+public class AvtoNetListItem implements IProcessedAdBriefData {
     public String title;
     public int id;
     public String shortTitle;
+    public String brand;
+    public String model;
 
     public String photoPath;
 
@@ -24,17 +29,68 @@ public class AvtoNetListItem {
 
     public String regularPrice;
 
-
+    @Override
     public String getTitle() {
         return title;
+    }
+
+    @Override
+    public String getBrand() {
+        return brand;
+    }
+
+    @Override
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    @Override
+    public String getModel() {
+        return model;
+    }
+
+    @Override
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    @Override
+    public String getPhotoUrl() {
+        return photoPath;
+    }
+
+    @Override
+    public String getOtherData() {
+        JSONObject otherData = new JSONObject();
+
+        otherData.put("shortTitle", getAge());
+        otherData.put("firstRegistrationYear", getDrivenDistanceKm());
+        otherData.put("drivenDistanceKm", getDrivenDistanceKm());
+        otherData.put("engineType", getEngineType());
+        otherData.put("transmissionType", getTransmissionType());
+        otherData.put("engineParameters", getEngineParameters());
+        otherData.put("age", getAge());
+        otherData.put("sellerNotes", getSellerNotes());
+        otherData.put("isDealer", isDealer());
+        otherData.put("dealerId", getDealerId());
+        otherData.put("regularPrice", getRegularPrice());
+        otherData.put("otherParameters", getOtherParameters());
+
+        return otherData.toString(2);
+    }
+
+    @Override
+    public IProcessedAdBriefData toInterface() {
+        return this;
     }
 
     public void setTitle(String title) {
         this.title = title;
     }
 
-    public int getId() {
-        return id;
+    @Override
+    public String getId() {
+        return String.valueOf(id);
     }
 
     public void setId(int id) {

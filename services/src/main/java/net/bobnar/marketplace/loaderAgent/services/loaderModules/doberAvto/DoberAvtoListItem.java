@@ -1,29 +1,61 @@
 package net.bobnar.marketplace.loaderAgent.services.loaderModules.doberAvto;
 
-public class DoberAvtoListItem {
-    public String id;
-    public String title;
-    public String manufacturer;
+import net.bobnar.marketplace.loaderAgent.services.processor.IProcessedAdBriefData;
+import org.json.JSONObject;
 
-    public String photoPath;
+import java.util.HashMap;
 
-    public String age;
-
-    public int drivenDistanceKm;
-    public String firstRegistrationDate;
-    public String transmissionType;
-    public int enginePowerKW;
-    public int engineDisplacementCcm;
-    public int totalOwners;
-    public String engineType;
+public class DoberAvtoListItem implements IProcessedAdBriefData {
+    private String id;
+    private String title;
+    private String brand;
+    private String model;
+    private String photoUrl;
 
 
-    public int priceEur;
+    private String age;
 
-    public boolean isDealer;
-    public String dealerId;
-    public String dealerInfo;
+    private int drivenDistanceKm;
+    private String firstRegistrationDate;
+    private String transmissionType;
+    private int enginePowerKW;
+    private int engineDisplacementCcm;
+    private int totalOwners;
+    private String engineType;
 
+
+    private int priceEur;
+
+    private boolean isDealer;
+    private String dealerId;
+    private String dealerInfo;
+
+    @Override
+    public String getOtherData() {
+        JSONObject otherData = new JSONObject();
+
+        otherData.put("age", getAge());
+        otherData.put("drivenDistanceKm", getDrivenDistanceKm());
+        otherData.put("firstRegistrationDate", getFirstRegistrationDate());
+        otherData.put("transmissionType", getTransmissionType());
+        otherData.put("enginePowerKW", getEnginePowerKW());
+        otherData.put("engineDisplacementCcm", getEngineDisplacementCcm());
+        otherData.put("totalOwners", getTotalOwners());
+        otherData.put("engineType", getEngineType());
+        otherData.put("priceEur", getPriceEur());
+        otherData.put("isDealer", isDealer);
+        otherData.put("dealerId", getDealerId());
+        otherData.put("dealerInfo", getDealerInfo());
+
+        return otherData.toString(2);
+    }
+
+    @Override
+    public IProcessedAdBriefData toInterface() {
+        return this;
+    }
+
+    @Override
     public String getId() {
         return id;
     }
@@ -32,6 +64,7 @@ public class DoberAvtoListItem {
         this.id = id;
     }
 
+    @Override
     public String getTitle() {
         return title;
     }
@@ -40,20 +73,31 @@ public class DoberAvtoListItem {
         this.title = title;
     }
 
-    public String getManufacturer() {
-        return manufacturer;
+    @Override
+    public String getBrand() {
+        return brand;
     }
 
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
-    public String getPhotoPath() {
-        return photoPath;
+    @Override
+    public String getModel() {
+        return model;
     }
 
-    public void setPhotoPath(String photoPath) {
-        this.photoPath = photoPath;
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    @Override
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
     }
 
     public String getAge() {

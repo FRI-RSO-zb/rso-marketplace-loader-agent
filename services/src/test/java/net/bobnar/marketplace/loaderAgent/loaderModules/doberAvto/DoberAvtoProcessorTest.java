@@ -7,7 +7,6 @@ import net.bobnar.marketplace.loaderAgent.services.processor.ProcessItemResult;
 import net.bobnar.marketplace.loaderAgent.services.processor.ProcessListResult;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -46,19 +45,19 @@ class DoberAvtoProcessorTest extends TestBase {
                 () -> assertNull(result.errors),
                 () -> assertEquals("ok", result.status),
 
-                () -> assertEquals("N7LFRB9M", result.item.id),
-                () -> assertEquals("Audi", result.item.manufacturer),
-                () -> assertEquals("A1 1.4 TFSI Aut. S-tronic S-Line 122KM", result.item.title),
-                () -> assertEquals(157000, result.item.drivenDistanceKm),
-                () -> assertEquals(90, result.item.enginePowerKW),
-                () -> assertEquals(1390, result.item.engineDisplacementCcm),
-                () -> assertEquals("2012-03-29", result.item.firstRegistrationDate),
-                () -> assertEquals(2, result.item.totalOwners),
-                () -> assertEquals("Bencin", result.item.engineType),
-                () -> assertEquals(9590, result.item.priceEur),
-                () -> assertEquals("Avtomatski menjalnik", result.item.transmissionType),
-                () -> assertEquals("https://img.doberavto.si/postings/f8b208e8-c98e-4bbd-bff1-d62a76d043d5", result.item.photoPath),
-                () -> assertEquals("Rabljeno", result.item.age)
+                () -> assertEquals("N7LFRB9M", result.item.getId()),
+                () -> assertEquals("Audi", result.item.getBrand()),
+                () -> assertEquals("A1 1.4 TFSI Aut. S-tronic S-Line 122KM", result.item.getTitle()),
+                () -> assertEquals(157000, result.item.getDrivenDistanceKm()),
+                () -> assertEquals(90, result.item.getEnginePowerKW()),
+                () -> assertEquals(1390, result.item.getEngineDisplacementCcm()),
+                () -> assertEquals("2012-03-29", result.item.getFirstRegistrationDate()),
+                () -> assertEquals(2, result.item.getTotalOwners()),
+                () -> assertEquals("Bencin", result.item.getEngineType()),
+                () -> assertEquals(9590, result.item.getPriceEur()),
+                () -> assertEquals("Avtomatski menjalnik", result.item.getTransmissionType()),
+                () -> assertEquals("https://img.doberavto.si/postings/f8b208e8-c98e-4bbd-bff1-d62a76d043d5", result.item.getPhotoUrl()),
+                () -> assertEquals("Rabljeno", result.item.getAge())
             );
     }
 }
