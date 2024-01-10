@@ -37,9 +37,9 @@ public abstract class MarketplaceHttpService {
         } catch (URISyntaxException | IOException | InterruptedException e) {
             throw new RuntimeException(e);
         } finally {
-            if (client != null) {
-                client.close();
-            }
+//            if (client != null) {
+//                client.close();
+//            }
         }
     }
 
@@ -69,9 +69,9 @@ public abstract class MarketplaceHttpService {
         } catch (URISyntaxException | IOException | InterruptedException e) {
             throw new RuntimeException(e);
         } finally {
-            if (client != null) {
-                client.close();
-            }
+//            if (client != null) {
+//                client.close();
+//            }
         }
     }
 
@@ -101,9 +101,9 @@ public abstract class MarketplaceHttpService {
         } catch (URISyntaxException | IOException | InterruptedException e) {
             throw new RuntimeException(e);
         } finally {
-            if (client != null) {
-                client.close();
-            }
+//            if (client != null) {
+//                client.close();
+//            }
         }
     }
 
