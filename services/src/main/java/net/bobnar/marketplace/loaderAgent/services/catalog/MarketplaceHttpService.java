@@ -15,7 +15,9 @@ import java.time.temporal.ChronoUnit;
 
 public abstract class MarketplaceHttpService {
     protected <TResponse> TResponse getFromUrl(String path, Class<TResponse> responseType) {
-        try (HttpClient client = HttpClient.newHttpClient()) {
+        HttpClient client = null;
+        try {
+            client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(new URI(getServiceRootUrl() + path))
                     .timeout(Duration.of(2, ChronoUnit.SECONDS))
@@ -34,11 +36,17 @@ public abstract class MarketplaceHttpService {
             return responseValue;
         } catch (URISyntaxException | IOException | InterruptedException e) {
             throw new RuntimeException(e);
+        } finally {
+            if (client != null) {
+                client.close();
+            }
         }
     }
 
     protected <TRequest, TResponse> TResponse postToUrl(String path, TRequest data, Class<TResponse> responseType) {
-        try (HttpClient client = HttpClient.newHttpClient()) {
+        HttpClient client = null;
+        try {
+            client = HttpClient.newHttpClient();
             ObjectMapper mapper = getObjectMapper();
             String jsonData = mapper.writeValueAsString(data);
 
@@ -60,11 +68,17 @@ public abstract class MarketplaceHttpService {
             return responseValue;
         } catch (URISyntaxException | IOException | InterruptedException e) {
             throw new RuntimeException(e);
+        } finally {
+            if (client != null) {
+                client.close();
+            }
         }
     }
 
     protected <TRequest, TResponse> TResponse putToUrl(String path, TRequest data, Class<TResponse> responseType) {
-        try (HttpClient client = HttpClient.newHttpClient()) {
+        HttpClient client = null;
+        try {
+            client = HttpClient.newHttpClient();
             ObjectMapper mapper = getObjectMapper();
             String jsonData = mapper.writeValueAsString(data);
 
@@ -86,6 +100,10 @@ public abstract class MarketplaceHttpService {
             return responseValue;
         } catch (URISyntaxException | IOException | InterruptedException e) {
             throw new RuntimeException(e);
+        } finally {
+            if (client != null) {
+                client.close();
+            }
         }
     }
 
