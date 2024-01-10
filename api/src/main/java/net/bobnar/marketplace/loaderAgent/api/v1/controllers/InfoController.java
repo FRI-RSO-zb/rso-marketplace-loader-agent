@@ -1,5 +1,6 @@
 package net.bobnar.marketplace.loaderAgent.api.v1.controllers;
 
+import com.kumuluz.ee.cors.annotations.CrossOrigin;
 import net.bobnar.marketplace.common.controllers.InfoControllerBase;
 import net.bobnar.marketplace.common.dtos.v1.info.Info;
 import net.bobnar.marketplace.common.dtos.v1.info.VersionInfo;
@@ -22,6 +23,7 @@ import java.util.Properties;
 @Tag(name = "Info", description = "Deployment instance information")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@CrossOrigin(name="info", allowOrigin = "*", supportedMethods = "GET, HEAD, POST, OPTIONS, DELETE")
 public class InfoController extends InfoControllerBase {
     @GET
     @Operation(

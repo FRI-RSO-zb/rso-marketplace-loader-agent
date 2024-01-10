@@ -65,10 +65,10 @@ import java.util.stream.Collectors;
 
 @Log
 @Path("pipelines")
-@Tag(name="Pipelines (DRAFT)", description = "Endpoints that combine the service operations and allow exporting of data")
+@Tag(name="Pipelines", description = "Endpoints that combine the service operations and allow exporting of data")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@CrossOrigin(supportedMethods =  "GET, POST, HEAD, OPTIONS, PUT, DELETE", allowOrigin = "*")
+@CrossOrigin(name="pipelines", allowOrigin = "*", supportedMethods = "GET, HEAD, POST, OPTIONS, DELETE")
 @RequestScoped
 public class PipelinesController extends ControllerBase {
 
