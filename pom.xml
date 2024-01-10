@@ -42,6 +42,7 @@
     <keycloak.version>5.0.0</keycloak.version>
     <kumuluzee-cdi-weld.version>4.1.0</kumuluzee-cdi-weld.version>
     <kumuluz-grpc.version>1.1.0</kumuluz-grpc.version>
+    <kumuluzee-fault-tolerance.version>2.1.1</kumuluzee-fault-tolerance.version>
   </properties>
 
 
@@ -182,6 +183,11 @@
         <version>${kumuluz-grpc.version}</version>
       </dependency>
 
+      <dependency>
+        <groupId>com.kumuluz.ee.fault.tolerance</groupId>
+        <artifactId>kumuluzee-fault-tolerance-smallrye</artifactId>
+        <version>${kumuluzee-fault-tolerance.version}</version>
+      </dependency>
 
 <!--      <dependency>-->
 <!--        <groupId>net.bobnar.marketplace</groupId>-->

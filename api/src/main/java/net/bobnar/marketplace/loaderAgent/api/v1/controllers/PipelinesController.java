@@ -33,6 +33,9 @@ import net.bobnar.marketplace.loaderAgent.services.loaderModules.salomon.Salomon
 import net.bobnar.marketplace.loaderAgent.services.loaderModules.salomon.SalomonProcessor;
 import net.bobnar.marketplace.loaderAgent.services.processor.IProcessedAdBriefData;
 import net.bobnar.marketplace.loaderAgent.services.processor.ProcessListResult;
+import org.eclipse.microprofile.faulttolerance.CircuitBreaker;
+import org.eclipse.microprofile.faulttolerance.Fallback;
+import org.eclipse.microprofile.faulttolerance.Timeout;
 import org.eclipse.microprofile.metrics.annotation.Metered;
 import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.eclipse.microprofile.openapi.annotations.Operation;
@@ -95,23 +98,11 @@ public class PipelinesController extends ControllerBase {
             summary = "Loads the site and exports it to the catalog",
             description = "Starts the loading of site and processes the result, then exports it to catalog."
     )
-//    @APIResponses({
-//            @APIResponse(
-//                    responseCode = "200",
-//                    description = "Input processed",
-//                    content = @Content(schema = @Schema(implementation = ProcessingResult.class))
-//            ),
-//            @APIResponse(
-//                    responseCode = "404",
-//                    description = "Input type not supported by processor."
-//            ),
-//            @APIResponse(
-//                    responseCode = "500",
-//                    description = "Input processing failed."
-//            )
-//    })
-//    @Timed(name="processors_process_timer")
-//    @Metered(name="processors_process_meter")
+    @Timed(name="processors_process_timer")
+    @Metered(name="processors_process_meter")
+    @CircuitBreaker
+    @Timeout(value=5, unit=ChronoUnit.SECONDS)
+    @Fallback(fallbackMethod = "processFallback")
     public Response process(
             @PathParam("site") @Parameter(description = "The site name", example = "doberavto", required = true) String site
     ) {
@@ -247,65 +238,72 @@ public class PipelinesController extends ControllerBase {
     }
 
 
-    @POST
-    @Path("export/item/to/catalog")
-    @Operation(
-            summary = "Export the processed item to the catalog service (DRAFT)",
-            description = "Tries to export the provided processed data to the catalog service.",
-            hidden = true
-    )
-    @APIResponses({
-//            @APIResponse(
-//                    responseCode = "200",
-//                    description = "Input processed",
-//                    content = @Content(schema = @Schema(implementation = ProcessingResult.class))
-//            ),
-//            @APIResponse(
-//                    responseCode = "404",
-//                    description = "Input type not supported by processor."
-//            ),
-            @APIResponse(
-                    responseCode = "500",
-                    description = "Request failed."
-            )
-    })
-    @Timed(name="export_catalog_item_timer")
-    @Metered(name="export_catalog_item_meter")
-    public Response exportSingleToCatalog(
-            @RequestBody(description = "The item to be exported to catalog", required = true, content = @Content(schema = @Schema(implementation = ItemToExport.class))) ItemToExport item
-    ) {
-        return Response.serverError().build();
+    public Response processFallback(String site) {
+        return Response.serverError().entity("Unable to accept processing requests at the moment").build();
     }
 
-    @POST
-    @Path("export/items/to/catalog")
-    @Operation(
-            summary = "Export the processed items to the catalog service (DRAFT)",
-            description = "Tries to export the provided processed data that contains multiple items to the catalog service.",
-            deprecated = true,
-            hidden = true
-    )
-    @APIResponses({
+//    @POST
+//    @Path("export/item/to/catalog")
+//    @Operation(
+//            summary = "Export the processed item to the catalog service (DRAFT)",
+//            description = "Tries to export the provided processed data to the catalog service.",
+//            hidden = true
+//    )
+//    @APIResponses({
+////            @APIResponse(
+////                    responseCode = "200",
+////                    description = "Input processed",
+////                    content = @Content(schema = @Schema(implementation = ProcessingResult.class))
+////            ),
+////            @APIResponse(
+////                    responseCode = "404",
+////                    description = "Input type not supported by processor."
+////            ),
 //            @APIResponse(
-//                    responseCode = "200",
-//                    description = "Input processed",
-//                    content = @Content(schema = @Schema(implementation = ProcessingResult.class))
-//            ),
+//                    responseCode = "500",
+//                    description = "Request failed."
+//            )
+//    })
+//    @Timed(name="export_catalog_item_timer")
+//    @Metered(name="export_catalog_item_meter")
+//    public Response exportSingleToCatalog(
+//            @RequestBody(description = "The item to be exported to catalog", required = true, content = @Content(schema = @Schema(implementation = ItemToExport.class))) ItemToExport item
+//    ) {
+//        return Response.serverError().build();
+//    }
+
+//    @POST
+//    @Path("export/items/to/catalog")
+//    @Operation(
+//            summary = "Export the processed items to the catalog service (DRAFT)",
+//            description = "Tries to export the provided processed data that contains multiple items to the catalog service.",
+//            deprecated = true,
+//            hidden = true
+//    )
+//    @APIResponses({
+////            @APIResponse(
+////                    responseCode = "200",
+////                    description = "Input processed",
+////                    content = @Content(schema = @Schema(implementation = ProcessingResult.class))
+////            ),
+////            @APIResponse(
+////                    responseCode = "404",
+////                    description = "Input type not supported by processor."
+////            ),
 //            @APIResponse(
-//                    responseCode = "404",
-//                    description = "Input type not supported by processor."
-//            ),
-            @APIResponse(
-                    responseCode = "500",
-                    description = "Request failed."
-            )
-    })
-    @Timed(name="export_catalog_items_timer")
-    @Metered(name="export_catalog_items_meter")
-    public Response ExportMultipleToCatalog(
-            @RequestBody(description = "The items to be exported to catalog", content = @Content(schema = @Schema(implementation = ItemsToExport.class)), required = true) ItemsToExport items
-    ) {
-        return Response.serverError().build();
-    }
+//                    responseCode = "500",
+//                    description = "Request failed."
+//            )
+//    })
+//    @Timed(name="export_catalog_items_timer")
+//    @Metered(name="export_catalog_items_meter")
+//    @CircuitBreaker
+//    @Timeout(value=2, unit=ChronoUnit.SECONDS)
+//    public Response exportMultipleToCatalog(
+//            @RequestBody(description = "The items to be exported to catalog", content = @Content(schema = @Schema(implementation = ItemsToExport.class)), required = true) ItemsToExport items
+//    ) {
+//        return Response.serverError().build();
+//    }
+//
 
 }

@@ -44,3 +44,10 @@ kumuluzee:
     web-instrumentation:
       - name: metricsEndpoint
         url-pattern: /metrics/*
+
+  fault-tolerance:
+    fallback:
+      enabled: true
+    retry:
+      max-retries: 5
+
