@@ -10,6 +10,7 @@ import net.bobnar.marketplace.common.dtos.catalog.v1.carModels.CarModel;
 import net.bobnar.marketplace.common.dtos.loaderAgent.v1.loaders.LoadingResult;
 import net.bobnar.marketplace.common.dtos.loaderAgent.v1.pipelines.ItemToExport;
 import net.bobnar.marketplace.common.dtos.loaderAgent.v1.pipelines.ItemsToExport;
+import net.bobnar.marketplace.loaderAgent.api.v1.dtos.DebugConfig;
 import net.bobnar.marketplace.loaderAgent.services.LoaderHelper;
 import net.bobnar.marketplace.loaderAgent.services.ProcessorHelper;
 import net.bobnar.marketplace.loaderAgent.services.catalog.AdsService;
@@ -36,8 +37,8 @@ import net.bobnar.marketplace.loaderAgent.services.processor.ProcessListResult;
 import org.eclipse.microprofile.faulttolerance.CircuitBreaker;
 import org.eclipse.microprofile.faulttolerance.Fallback;
 import org.eclipse.microprofile.faulttolerance.Timeout;
-import org.eclipse.microprofile.metrics.annotation.Metered;
-import org.eclipse.microprofile.metrics.annotation.Timed;
+//import org.eclipse.microprofile.metrics.annotation.Metered;
+//import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
@@ -63,6 +64,8 @@ import java.net.http.HttpResponse;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 
@@ -74,6 +77,7 @@ import java.util.stream.Collectors;
 @CrossOrigin(name="pipelines", allowOrigin = "*", supportedMethods = "GET, HEAD, POST, OPTIONS, DELETE")
 @RequestScoped
 public class PipelinesController extends ControllerBase {
+    private Logger log = Logger.getLogger(PipelinesController.class.getName());
 
 
 //    @Inject
@@ -98,26 +102,39 @@ public class PipelinesController extends ControllerBase {
             summary = "Loads the site and exports it to the catalog",
             description = "Starts the loading of site and processes the result, then exports it to catalog."
     )
-    @Timed(name="processors_process_timer")
-    @Metered(name="processors_process_meter")
-    @CircuitBreaker
+//    @Timed(name="processors_process_timer")
+//    @Metered(name="processors_process_meter")
+    @CircuitBreaker(requestVolumeThreshold = 3)
     @Timeout(value=5, unit=ChronoUnit.SECONDS)
     @Fallback(fallbackMethod = "processFallback")
     public Response process(
             @PathParam("site") @Parameter(description = "The site name", example = "doberavto", required = true) String site
     ) {
-        HashMap<String, Object> result = new HashMap<>();
+        log.info("Start of processing for site " + site);
 
+        if (serviceConfig.isIntentionalyBrokenCircuit()) {
+            try{
+                TimeUnit.SECONDS.sleep(5);
+            } catch (InterruptedException e){
+                log.severe("Request timed out");
+            }
+
+            throw new InternalServerErrorException("Circuit is broken intentionally");
+        }
+
+        HashMap<String, Object> result = new HashMap<>();
         result.put("source", site);
         result.put("shouldUseInternalResource", serviceConfig.shouldUseInternalResources());
 
         LoadingResult loadingResult = LoaderHelper.loadLatestListFromSource(site, serviceConfig.shouldUseInternalResources());
         if (loadingResult == null) {
+            log.warning("Site loader failed");
             return respondNotFound();
         }
 
         ProcessListResult<IProcessedAdBriefData> processingResult = ProcessorHelper.processFromSource(site, loadingResult.content());
         if (processingResult == null) {
+            log.warning("Site processor failed");
             return respondNotFound();
         }
         result.put("processingResult", processingResult.toDto());
@@ -227,10 +244,13 @@ public class PipelinesController extends ControllerBase {
 
 
         if (!adsToCreate.isEmpty()) {
+            log.warning("Creating " + adsToCreate.size() + " new ads");
+
             Ad[] createdAds = adsService.createAds(adsToCreate.toArray(new Ad[0]));
             result.put("createdAds", createdAds);
         }
 
+        log.info("Processing finished");
 
         return result != null ?
                 Response.ok(result).build() :

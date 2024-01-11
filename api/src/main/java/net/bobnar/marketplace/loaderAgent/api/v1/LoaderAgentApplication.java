@@ -43,7 +43,7 @@ import javax.ws.rs.core.Application;
                 ),
                 @Server(
                         description = "Production deployment",
-                        url = "https://loader-agent.marketplace.bobnar.net/"
+                        url = "https://loader-agent.marketplace.azure.bobnar.net/"
                 ),
                 @Server(
                         description = "Deployment on different url (https)",

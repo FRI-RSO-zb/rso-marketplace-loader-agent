@@ -15,6 +15,12 @@ public class ServiceConfig {
     @ConfigValue("useInternalResources")
     private boolean useInternalResources = true;
 
+    @ConfigValue("intentionalyBrokenCircuit")
+    private boolean intentionalyBrokenCircuit = false;
+
+    @ConfigValue("catalogServiceUrl")
+    private String catalogServiceUrl = "http://localhost:8801/v1";
+
     public boolean isEnabled() {
         return this.enabled;
     }
@@ -37,5 +43,33 @@ public class ServiceConfig {
 
     public void useExternalResources() {
         this.useInternalResources = false;
+    }
+
+    public boolean isIntentionalyBrokenCircuit() {
+        return intentionalyBrokenCircuit;
+    }
+
+    public void setIntentionalyBrokenCircuit(boolean intentionalyBrokenCircuit) {
+        this.intentionalyBrokenCircuit = intentionalyBrokenCircuit;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public boolean isUseInternalResources() {
+        return useInternalResources;
+    }
+
+    public void setUseInternalResources(boolean useInternalResources) {
+        this.useInternalResources = useInternalResources;
+    }
+
+    public String getCatalogServiceUrl() {
+        return catalogServiceUrl;
+    }
+
+    public void setCatalogServiceUrl(String catalogServiceUrl) {
+        this.catalogServiceUrl = catalogServiceUrl;
     }
 }

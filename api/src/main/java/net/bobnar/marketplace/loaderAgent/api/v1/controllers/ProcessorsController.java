@@ -3,15 +3,16 @@ package net.bobnar.marketplace.loaderAgent.api.v1.controllers;
 import com.kumuluz.ee.cors.annotations.CrossOrigin;
 import com.kumuluz.ee.logs.cdi.Log;
 import net.bobnar.marketplace.common.dtos.loaderAgent.v1.processors.ProcessingResult;
+import net.bobnar.marketplace.loaderAgent.api.v1.dtos.DebugConfig;
 import net.bobnar.marketplace.loaderAgent.services.loaderModules.avtonet.AvtoNetProcessor;
 import net.bobnar.marketplace.loaderAgent.services.loaderModules.bolha.BolhaProcessor;
 import net.bobnar.marketplace.loaderAgent.services.loaderModules.doberAvto.DoberAvtoProcessor;
 import net.bobnar.marketplace.loaderAgent.services.loaderModules.oglasiSi.OglasiSiProcessor;
 import net.bobnar.marketplace.loaderAgent.services.loaderModules.salomon.SalomonProcessor;
-import org.eclipse.microprofile.metrics.Meter;
-import org.eclipse.microprofile.metrics.annotation.Metered;
-import org.eclipse.microprofile.metrics.annotation.Metric;
-import org.eclipse.microprofile.metrics.annotation.Timed;
+//import org.eclipse.microprofile.metrics.Meter;
+//import org.eclipse.microprofile.metrics.annotation.Metered;
+//import org.eclipse.microprofile.metrics.annotation.Metric;
+//import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
@@ -28,6 +29,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 
 @Log
@@ -37,6 +39,8 @@ import java.util.List;
 @Consumes(MediaType.APPLICATION_JSON)
 @CrossOrigin(name="processors", allowOrigin = "*", supportedMethods = "GET, HEAD, POST, OPTIONS, DELETE")
 public class ProcessorsController {
+    private Logger log = Logger.getLogger(ProcessorsController.class.getName());
+
     private static final String AVTONET = "avtonet";
     private static final String BOLHA = "bolha";
     private static final String DOBERAVTO = "doberavto";
@@ -45,9 +49,9 @@ public class ProcessorsController {
 
     private static final String LIST_TYPE = "list";
 
-    @Inject
-    @Metric(name="processing_meter")
-    private Meter processingMeter;
+//    @Inject
+//    @Metric(name="processing_meter")
+//    private Meter processingMeter;
 
     @GET
     @Operation(
@@ -124,14 +128,14 @@ public class ProcessorsController {
                     description = "Input processing failed."
             )
     })
-    @Timed(name="processors_process_timer")
-    @Metered(name="processors_process_meter")
+//    @Timed(name="processors_process_timer")
+//    @Metered(name="processors_process_meter")
     public Response process(
             @PathParam("processor") @Parameter(description = "The name of processor", example = AVTONET, required = true) String processor,
             @PathParam("type") @Parameter(description = "The type of input data", example = LIST_TYPE, required = true) String type,
             @RequestBody(description = "The input data to be processed", content = @Content(example = SAMPLE_AVTONET_PAGE), required = true) String data
     ) {
-        this.processingMeter.mark();
+//        this.processingMeter.mark();
 
         ProcessingResult result = switch (processor) {
             case AVTONET -> switch (type) {

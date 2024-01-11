@@ -38,16 +38,16 @@ kumuluzee:
     checks:
       disk-space-health-check:
         threshold: 10000
-  metrics:
-    servlet:
-      enabled: true
-    web-instrumentation:
-      - name: metricsEndpoint
-        url-pattern: /metrics/*
+#  metrics:
+#    servlet:
+#      enabled: true
+#    web-instrumentation:
+#      - name: metricsEndpoint
+#        url-pattern: /metrics/*
 
-  fault-tolerance:
-    fallback:
-      enabled: true
-    retry:
-      max-retries: 5
+#  fault-tolerance:
+#    fallback:
+#      enabled: true
+#    retry:
+#      max-retries: 5
 

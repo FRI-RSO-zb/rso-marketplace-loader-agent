@@ -3,16 +3,17 @@ package net.bobnar.marketplace.loaderAgent.api.v1.controllers;
 import com.kumuluz.ee.cors.annotations.CrossOrigin;
 import com.kumuluz.ee.logs.cdi.Log;
 import net.bobnar.marketplace.common.dtos.loaderAgent.v1.loaders.LoadingResult;
+import net.bobnar.marketplace.loaderAgent.api.v1.dtos.DebugConfig;
 import net.bobnar.marketplace.loaderAgent.services.config.ServiceConfig;
 import net.bobnar.marketplace.loaderAgent.services.loaderModules.avtonet.AvtoNetLoader;
 import net.bobnar.marketplace.loaderAgent.services.loaderModules.bolha.BolhaLoader;
 import net.bobnar.marketplace.loaderAgent.services.loaderModules.doberAvto.DoberAvtoLoader;
 import net.bobnar.marketplace.loaderAgent.services.loaderModules.oglasiSi.OglasiSiLoader;
 import net.bobnar.marketplace.loaderAgent.services.loaderModules.salomon.SalomonLoader;
-import org.eclipse.microprofile.metrics.Meter;
-import org.eclipse.microprofile.metrics.annotation.Metered;
-import org.eclipse.microprofile.metrics.annotation.Metric;
-import org.eclipse.microprofile.metrics.annotation.Timed;
+//import org.eclipse.microprofile.metrics.Meter;
+//import org.eclipse.microprofile.metrics.annotation.Metered;
+//import org.eclipse.microprofile.metrics.annotation.Metric;
+//import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
@@ -30,6 +31,7 @@ import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 
 @Log
@@ -40,6 +42,8 @@ import java.util.List;
 @RequestScoped
 @CrossOrigin(name="loaders", allowOrigin = "*", supportedMethods = "GET, HEAD, POST, OPTIONS, DELETE")
 public class LoadersController {
+    private Logger log = Logger.getLogger(LoadersController.class.getName());
+
     private static final String AVTONET = "avtonet";
     private static final String BOLHA = "bolha";
     private static final String DOBERAVTO = "doberavto";
@@ -48,9 +52,9 @@ public class LoadersController {
 
     private static final String LATEST_PAGE = "latest";
 
-    @Inject
-    @Metric(name="loading_meter")
-    private Meter loadingMeter;
+//    @Inject
+//    @Metric(name="loading_meter")
+//    private Meter loadingMeter;
 
     @Inject
     private ServiceConfig serviceConfig;
@@ -136,13 +140,13 @@ public class LoadersController {
                     description = "Page loading failed."
             )
     })
-    @Timed(name="loaders_load_timer")
-    @Metered(name="loaders_load_meter")
+//    @Timed(name="loaders_load_timer")
+//    @Metered(name="loaders_load_meter")
     public Response loadPage(
             @PathParam("loader") @Parameter(description = "The name of loader to use", example = AVTONET, required = true) String loader,
             @PathParam("page") @Parameter(description = "The name of page to load", example = LATEST_PAGE, required = true) String page
     ) throws IOException {
-        this.loadingMeter.mark();
+//        this.loadingMeter.mark();
 
         LoadingResult result = switch (loader) {
             case AVTONET -> switch (page) {
